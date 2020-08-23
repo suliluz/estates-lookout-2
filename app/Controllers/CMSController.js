@@ -1155,6 +1155,10 @@ module.exports = {
                     business_address: platform.business_address,
                     business_hours: platform.business_hours,
                     useful_links: platform.useful_links,
+                    visibility: {
+                        isVisible: ("visibility" in platform),
+                        reason: null
+                    },
                     completed: true
                 }
             });

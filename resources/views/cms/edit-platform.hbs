@@ -1,6 +1,17 @@
 <section id="edit-platform">
     <div class="container">
         <form action="/cms/edit-platform" method="post">
+            <div class="row valign-wrapper">
+                <div class="col s12 m2">
+                    <p>Platform Visibility</p>
+                </div>
+                <div class="col s12 m10">
+                    <label for="visibility">
+                        <input name="platform[visibility]" id="visibility" class="filled-in" type="checkbox" {{#if @root.data.platform.visibility.isVisible}}checked="checked"{{/if}}>
+                        <span>Visible</span>
+                    </label>
+                </div>
+            </div>
             <div class="row">
                 <div class="col s12 m2">
                     <p>Platform Name</p>
@@ -89,7 +100,9 @@
                     <div class="file-input-btn" data-file-type="photo" data-file-count="1" data-input-name="platform[about_image]">
                         <i class="material-icons">insert_photo</i>
                         <p>Insert Photo</p>
-                        <input type="hidden" name="platform[about_image][]" value="{{#if @root.data.platform.about_image}}{{ @root.data.platform.about_image}}{{/if}}">
+                        {{#if @root.data.platform.about_image}}
+                            <input type="hidden" name="platform[about_image][]" value="{{@root.data.platform.about_image}}">
+                        {{/if}}
                     </div>
                 </div>
                 {{#if @root.data.platform.about_image}}
@@ -107,7 +120,9 @@
                     <div class="file-input-btn" data-file-type="logo" data-file-count="1" data-input-name="platform[logo]">
                         <i class="material-icons">insert_photo</i>
                         <p>Insert Photo</p>
-                        <input type="hidden" name="platform[logo][]" value="{{#if @root.data.platform.logo}}{{@root.data.platform.logo}}{{/if}}">
+                        {{#if @root.data.platform.logo}}
+                            <input type="hidden" name="platform[logo][]" value="{{@root.data.platform.logo}}">
+                        {{/if}}
                     </div>
                 </div>
                 {{#if @root.data.platform.logo}}

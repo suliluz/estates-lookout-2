@@ -2,11 +2,8 @@ const express = require("express");
 const middleware = require("../middleware");
 const router = express.Router();
 
-router.use(function (req, res, next) {
-    return res.send("<h3>Website is currently in maintenance. Stay tuned!</h3>");
-});
-
 router.use(middleware.searchAndDumpPlatform);
+router.use(middleware.checkPlatformVisibility);
 
 router.use(function (req, res, next) {
     if(res.locals.platform["theme_color"] !== "default") {

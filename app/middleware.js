@@ -98,6 +98,21 @@ module.exports = {
         }
     },
     /**
+     * Check if platform should be visible
+     */
+    checkPlatformVisibility: async function(req, res, next) {
+        try {
+            if(!res.locals.platform.visibility.isVisible) {
+                return res.send("<h3>Website is currently in maintenance. Stay tuned!</h3>");
+            } else {
+                next();
+            }
+        } catch (err) {
+            console.log(err);
+            return res.status(500).json({status: 500, message: "An error has occurred."});
+        }
+    },
+    /**
      * Check if user is authenticated with an encrypted token
      */
     authenticate: async function(req, res, next) {
