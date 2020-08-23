@@ -1,7 +1,11 @@
 <div class="navbar-fixed hide-on-small-only" id="contact-nav">
     <nav class="main-color-text white">
         <div class="nav-wrapper valign-wrapper">
-            <a href="/" class="brand-logo left"></a>
+            <a href="/" class="brand-logo left center-align">
+                {{#if @root.platform.logo}}
+                    <img src="/media/{{@root.platform.logo}}" alt="logo">
+                {{/if}}
+            </a>
             <div class="center-region hide-on-small-only">
                 <a href="mailto:{{@root.platform.contact_email}}">{{@root.platform.contact_email}}</a>
             <ul class="right hide-on-med-and-down">

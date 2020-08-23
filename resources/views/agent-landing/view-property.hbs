@@ -107,7 +107,7 @@
                             {{/if}}
                             {{#if @root.data.listing.additional_info}}
                                 <section id="additional-info" class="section">
-                                    <p class="main-color-text default-size-paragraph">Facilities</p>
+                                    <p class="main-color-text default-size-paragraph">Features</p>
                                     <p style="font-size: 1.1rem">{{{@root.data.listing.additional_info}}}</p>
                                 </section>
                             {{/if}}
@@ -146,7 +146,7 @@
                                                 <div class="unit {{#if (equals this.status "available")}}green{{else if (equals this.status "sold")}}red{{else}}purple{{/if}}" data-tower="{{@../../index}}" data-unit="{{@index}}">
                                                     <p>{{this.name}}</p>
                                                     <p>{{this.sqft}} sqft</p>
-                                                    <p>{{this.status}}</p>
+                                                    <p>{{capitalize this.status}}</p>
                                                 </div>
                                             {{/each}}
                                         </div>

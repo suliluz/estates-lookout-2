@@ -649,12 +649,12 @@ TODO CMS Layout
             let originFileInput = document.querySelector(`.file-input-btn[data-input-name='${input_name}']`);
 
             // Get any thumbnail container instance in that area
-            let default_thumbnail_instance = originFileInput.parentNode.querySelectorAll(".thumbnail-container");
+            let default_thumbnail_instance = originFileInput.parentNode.querySelector(".thumbnail-container");
 
-            //Destroy all instance within that area
-            default_thumbnail_instance.forEach((element) => {
-                default_thumbnail_instance.parentNode.removeChild(element);
-            });
+            if(default_thumbnail_instance) {
+                //Destroy all instance within that area
+                default_thumbnail_instance.parentNode.removeChild(default_thumbnail_instance);
+            }
 
             let thumbnail_container_instance = document.querySelector(`#thumbnail-container-${qualifiedInputName}`);
 
@@ -742,10 +742,9 @@ TODO CMS Layout
                 mediaTargets.forEach((target) => {
                    if(target.dataset.mediaId === input.value) {
                        media = target;
+                       media.classList.add("highlighted");
                    }
                 });
-
-                media.classList.add("highlighted");
             });
         }
 

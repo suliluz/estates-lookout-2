@@ -3,6 +3,13 @@ $main-color: #947054;
 
 
 // Global styles start
+p {
+    font-size: 1rem;
+}
+
+ul li, ol li {
+    font-size: 1rem;
+}
 
 html {
     scroll-behavior: smooth;
@@ -101,13 +108,12 @@ body {
 
     .brand-logo {
         top: 0;
-        padding: 0 2rem;
         background-color: white;
-        width: 6rem;
+        width: 8rem;
         height: 95%;
 
         img {
-            width: 100%;
+            width: auto;
             height: 100%;
         }
     }
@@ -394,6 +400,9 @@ body {
 .unit-gallery {
 
     .carousel {
+        min-height: 30rem;
+        width: 100%;
+
         .carousel-item {
             width: 100%;
             height: 100%;
@@ -587,6 +596,7 @@ table {
                 margin: 0;
                 padding: 0.2rem;
             }
+            cursor: pointer;
 
             width: 10rem;
             height: 7rem;
@@ -883,5 +893,16 @@ footer {
                 background-color: $main-color !important;
             }
         }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .unit-gallery {
+
+        .carousel {
+            height: 15rem !important;
+            width: 100%;
+        }
+
     }
 }

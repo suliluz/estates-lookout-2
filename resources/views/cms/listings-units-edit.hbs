@@ -50,7 +50,7 @@
                     </div>
                     <div class="row marginalize-vertical">
                         <div class="col s12 m4">
-                            <p>Unit {{add this 1}} Additional Information:</p>
+                            <p>Unit {{add this 1}} Features:</p>
                         </div>
                         <div class="col s12 m8">
                             <textarea name="unit[{{this}}][additional_info]" id="unit-{{this}}-additional-info">{{#with (lookup @root.data.units this)}}{{additional_info}}{{/with}}</textarea>
@@ -136,9 +136,9 @@
                         <div class="col s12 m8">
                             <select name="unit[{{this}}][status]" id="unit-{{this}}-status">
                                 {{#with (lookup @root.data.units this)}}
-                                    <option value="available" {{#if (equals "available")}}selected{{/if}}>Available</option>
-                                    <option value="sold" {{#if (equals "sold")}}selected{{/if}}>Sold</option>
-                                    <option value="reserved" {{#if (equals "reserved")}}selected{{/if}}>Reserved</option>
+                                    <option value="available" {{#if (equals status "available")}}selected{{/if}}>Available</option>
+                                    <option value="sold" {{#if (equals status "sold")}}selected{{/if}}>Sold</option>
+                                    <option value="reserved" {{#if (equals status "reserved")}}selected{{/if}}>Reserved</option>
                                 {{else}}
                                     <option value="available" selected>Available</option>
                                     <option value="sold">Sold</option>

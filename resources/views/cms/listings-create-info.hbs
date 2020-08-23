@@ -98,10 +98,10 @@
             </div>`
             <div class="row marginalize-vertical">
                 <div class="col s12 m4">
-                    <p>Additional Information</p>
+                    <p>Features</p>
                 </div>
                 <div class="col s12 m8">
-                    <textarea name="additional_info" id="additional_info" placeholder="Additional information">{{@root.data.project.additional_info}}</textarea>
+                    <textarea name="additional_info" id="additional_info" placeholder="Features">{{@root.data.project.additional_info}}</textarea>
                 </div>
             </div>
             <div class="row marginalize-vertical">
@@ -140,7 +140,7 @@
                     <p>Video Gallery:</p>
                 </div>
                 <div class="col s12 m8">
-                    <div class="file-input-btn" data-file-type="video" data-file-count="infinity">
+                    <div class="file-input-btn" data-file-type="video" data-file-count="infinity" data-input-name="videos">
                         <i class="material-icons">videocam</i>
                         <p>Insert Videos</p>
                         {{#each @root.data.project.videos}}

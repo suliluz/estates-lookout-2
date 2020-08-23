@@ -70,7 +70,7 @@
                             <div class="card-content">
                                 <span class="card-title">{{this.name}}</span>
                                 <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>{{this.street_address}}</span>
-                                <span class="property-description truncate">{{this.description}}</span>
+                                <span class="property-description truncate">{{{this.description}}}</span>
                                 <div class="row">
                                     <span class="card-price main-color-text">{{this.metadata.price}}</span>
                                 </div>
@@ -116,7 +116,7 @@
                 <h2 class="entity-name">{{@root.platform.owner.first_name}} {{@root.platform.owner.last_name}}</h2>
                 <p class="entity-title main-color-text">{{capitalize @root.platform.owner_type}}</p>
                 <div class="about-us-content">
-                    {{@root.platform.about_us_description}}
+                    {{{@root.platform.about_description}}}
                 </div>
                 <div class="entity-mobile valign-wrapper">
                     <i class="material-icons main-color-text">call</i>
