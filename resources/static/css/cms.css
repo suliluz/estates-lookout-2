@@ -1,0 +1,272 @@
+body {
+  font-size: 62.5%; }
+
+p {
+  font-size: 1rem; }
+
+textarea {
+  font-size: 1rem; }
+
+.default-size {
+  font-size: 1rem; }
+
+.emboldened {
+  font-weight: bold; }
+
+.main-color-text, .main-color-text * {
+  color: #3b5998; }
+
+.page-active {
+  font-weight: bold; }
+
+.marginalize-vertical {
+  margin: 2rem 0; }
+
+.modal.full-screen {
+  width: 100vw;
+  max-height: 100vh;
+  height: 100vh;
+  top: 0 !important; }
+
+.modal.modal-fixed-header {
+  padding: 0;
+  height: 100%; }
+  .modal.modal-fixed-header .modal-header {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 0;
+    border-radius: 0 0 2px 2px;
+    padding: 4px 6px;
+    height: 5rem;
+    width: 100%; }
+  .modal.modal-fixed-header .modal-content {
+    position: absolute;
+    top: 5rem;
+    height: calc(100% - 5rem);
+    max-height: 100%;
+    overflow-y: auto;
+    width: 100%; }
+
+.full-width {
+  width: 100%; }
+
+div.file-input-btn {
+  width: 11rem;
+  height: 11rem;
+  padding: 1rem 0;
+  border: 0.5rem dashed grey;
+  color: grey;
+  text-align: center;
+  display: inline-block; }
+  div.file-input-btn i {
+    font-size: 4rem; }
+  div.file-input-btn p {
+    font-size: 1rem;
+    font-weight: bold; }
+
+.action-btn {
+  background: whitesmoke;
+  color: #3b5998;
+  border: 0.15rem solid #3b5998;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  transition: background-color 0.5s ease-in-out; }
+  .action-btn:hover {
+    background: #3b5998;
+    color: white !important; }
+
+.page-title {
+  font-size: 3rem;
+  margin-bottom: 2rem; }
+
+#cms-navbar .nav-wrapper {
+  padding-left: 3rem; }
+
+#cms-navbar .brand-logo {
+  width: 6rem;
+  height: 95%; }
+  #cms-navbar .brand-logo img {
+    width: 100%;
+    height: 100%; }
+
+#cms-navbar #large-navbar-navigation {
+  margin-left: 8rem; }
+  #cms-navbar #large-navbar-navigation li a {
+    transition: background-color 0.5s ease-in, color 0.5s ease-in; }
+  #cms-navbar #large-navbar-navigation li a:hover {
+    background: #3b5998;
+    font-weight: bold;
+    color: white; }
+
+#cms-navbar #notification-btn {
+  transition: background-color 0.5s ease-in, color 0.5s ease-in; }
+  #cms-navbar #notification-btn i {
+    margin-right: 0.5rem;
+    color: inherit; }
+  #cms-navbar #notification-btn:hover {
+    background: #3b5998;
+    color: white; }
+
+#cms-navbar .avatar-call-to-action {
+  text-align: center;
+  width: 28rem; }
+  #cms-navbar .avatar-call-to-action img {
+    width: 3.5rem;
+    height: 3.5rem; }
+  #cms-navbar .avatar-call-to-action span.name {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    font-size: 0.9rem; }
+
+#cms-navbar #avatar-call-to-action-dropdown {
+  width: 20rem !important; }
+
+#cms-navbar .navigation-dropdown {
+  top: 65px !important; }
+
+#cms-navbar #notification-window {
+  width: 20% !important; }
+
+#cms-navbar #navigation-menu {
+  width: 100% !important;
+  height: auto; }
+
+#listings .card-panel.create-listing-btn.long-height {
+  height: 55rem; }
+
+#listings .card-panel.create-listing-btn:hover {
+  background: #3b5998;
+  color: white; }
+
+#listings .card-panel.create-listing-btn .text-body-container {
+  margin: 25% 0; }
+
+#listings .card-panel.create-listing-btn span, #listings .card-panel.create-listing-btn i {
+  display: block;
+  font-size: 5rem;
+  margin: 0 auto;
+  font-weight: bold; }
+
+#listings .card {
+  height: 55rem; }
+  #listings .card .card-image img {
+    height: 20rem; }
+  #listings .card .card-title {
+    margin-left: 0.75rem; }
+
+#appointments .appointment-title {
+  font-size: 1.5rem; }
+
+#leads .collapsible .collapsible-header {
+  position: relative;
+  height: 4rem; }
+  #leads .collapsible .collapsible-header .lead-topic {
+    position: absolute;
+    left: 2rem; }
+  #leads .collapsible .collapsible-header .lead-status {
+    position: absolute;
+    right: 10rem; }
+  #leads .collapsible .collapsible-header .lead-createdAt {
+    position: absolute;
+    right: 4rem; }
+  #leads .collapsible .collapsible-header .lead-dropdownArrow {
+    position: absolute;
+    right: 1rem; }
+
+.thumbnail {
+  width: 5rem;
+  height: 5rem; }
+  .thumbnail:not(:last-child) {
+    margin-right: 1rem; }
+  .thumbnail-container {
+    margin-top: 1rem;
+    overflow-x: scroll;
+    width: 100%;
+    white-space: nowrap;
+    display: inline-block; }
+  .thumbnail img {
+    width: auto;
+    height: 100%; }
+
+#gallery-modal .gallery-media-select {
+  width: 256px;
+  height: auto;
+  text-align: center;
+  position: relative; }
+  #gallery-modal .gallery-media-select img {
+    width: auto;
+    height: auto; }
+  #gallery-modal .gallery-media-select .delete-confirmation-btn {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    padding: 0.2rem 0;
+    color: red;
+    font-size: 1rem;
+    font-weight: bold;
+    background: white;
+    cursor: pointer; }
+  #gallery-modal .gallery-media-select.highlighted {
+    border: 5px solid blue; }
+
+#gallery-modal .document-box {
+  width: 100%;
+  height: 11rem;
+  padding: 1rem 0;
+  border: 0.1rem solid grey;
+  color: grey;
+  text-align: center; }
+  #gallery-modal .document-box i {
+    font-size: 4rem; }
+
+#tower, #tower .item {
+  height: 40rem;
+  width: 100%; }
+
+#tower .tower-unit-container {
+  position: relative; }
+  #tower .tower-unit-container .unit {
+    width: 10rem;
+    height: 7rem;
+    text-align: center;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+    color: white;
+    font-size: 1rem; }
+    #tower .tower-unit-container .unit p {
+      margin: 0;
+      padding: 0.2rem; }
+    #tower .tower-unit-container .unit.yellow {
+      background-color: darkorange !important; }
+    #tower .tower-unit-container .unit.green {
+      background-color: green !important; }
+
+#tower .tower-container {
+  position: relative;
+  white-space: nowrap;
+  height: 94%;
+  overflow-y: scroll;
+  overflow-x: scroll; }
+
+#tower .owl-prev {
+  position: absolute;
+  left: 120px;
+  border: 0px solid black; }
+
+#tower .owl-next {
+  position: absolute;
+  right: 120px;
+  border: 0px solid black; }
+
+#tower .owl-item {
+  overflow-y: hidden;
+  position: relative;
+  height: 100%; }
+
+#tower-section {
+  height: 55rem; }
+  #tower-section #tower-carousel-index {
+    margin-top: 3.4rem; }

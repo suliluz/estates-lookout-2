@@ -1,0 +1,100 @@
+<section id="user-settings-edit">
+    <div class="container">
+        <form action="/cms/user-settings/user-edit-info" method="post">
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">First Name</p>
+                </div>
+                <div class="col s12 m10">
+                    <input type="text" class="validate" name="first_name" placeholder="Please enter your first name" value="{{@root.data.user.first_name}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">Last Name</p>
+                </div>
+                <div class="col s12 m10">
+                    <input type="text" class="validate" name="last_name" placeholder="Please enter your last name" value="{{@root.data.user.last_name}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">Username</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="username" placeholder="Please enter your unique username" type="text" value="{{@root.data.user.username}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">Email address</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="email" placeholder="Please enter your email address" type="email" value="{{@root.data.user.email}}">
+                </div>
+            </div>
+            {{#if (equals @root.user.platform_type "individual")}}
+                <div class="row">
+                    <div class="col s12 m2">
+                        <p class="default-size-paragraph emboldened">REN Number</p>
+                    </div>
+                    <div class="col s12 m10">
+                        <input class="validate" name="ren_number" placeholder="Please enter your agent REN number" type="text" value="{{@root.data.user.ren_number}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m2">
+                        <p class="default-size-paragraph emboldened">Company Number</p>
+                    </div>
+                    <div class="col s12 m10">
+                        <input class="validate" name="company_number" placeholder="Please enter your company number" type="text" value="{{@root.data.user.company_number}}">
+                    </div>
+                </div>
+            {{else}}
+                <div class="row">
+                    <div class="col s12 m2">
+                        <p class="default-size-paragraph emboldened">Company Number</p>
+                    </div>
+                    <div class="col s12 m10">
+                        <input class="validate" name="company_number" placeholder="Please enter your company number" type="text" value="{{@root.data.user.company_number}}">
+                    </div>
+                </div>
+            {{/if}}
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">REN Number</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="ren_number" placeholder="Please enter your agent REN number" type="text" value="{{@root.data.user.ren_number}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">CMS Theme Color</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="cms_color" placeholder="Please enter your preferred theme color" type="text" value="{{@root.data.user.cms_color}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p class="default-size-paragraph emboldened">Profile Photo</p>
+                </div>
+                <div class="col s12 m10">
+                    <div class="file-field input-field">
+                        <div class="btn main-color">
+                            <span>Image</span>
+                            <input type="file" name="avatar">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input type="text" class="file-path validate">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <button type="submit" class="btn-large main-color">Edit Profile Settings</button>
+            </div>
+        </form>
+    </div>
+</section>

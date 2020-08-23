@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Redirecting To Checkout...</title>
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <h3>Redirecting to checkout. Please do not exit this page.</h3>
+    <p id="errorMessage" style="color:red"></p>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var stripe = Stripe("{{stripePublishableKey}}")
+
+            stripe.redirectToCheckout({
+                sessionId: "{{@root.data.session}}"
+            }).then(function (result) {
+                if(result.error.message) {
+                    document.getElementById("errorMessage").textContent = result.error.message;
+                }
+            });
+        });
+    </script>
+</body>
+</html>

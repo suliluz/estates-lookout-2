@@ -1,0 +1,64 @@
+<section id="create-appointment" class="section">
+    <div class="container">
+        <div class="section">
+            <form action="/cms/appointments/create" method="post">
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Appointment Title:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="title" id="title" placeholder="Enter appointment title">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Date:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="date" id="date" class="datepicker" placeholder="Pick date of appointment">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Start time:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="start_time" id="start-time" class="timepicker" placeholder="Pick starting time of appointment">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>End time:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="end_time" id="end-time" class="timepicker" placeholder="Pick end time for appointment">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Appointment For:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="appointment_for" id="appointment-for" placeholder="Appointment for">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Details:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <textarea name="details" id="details" placeholder="Appointment details"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button type="submit" class="btn action-btn">
+                            <i class="material-icons left">check</i>
+                            Create Appointment
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

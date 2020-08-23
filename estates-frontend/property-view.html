@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property Of Lorem Ipsum</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.css">
+    <link rel="stylesheet" href="/css/agentpage.css">
+</head>
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="main-color white-text">
+                <div class="nav-wrapper container">
+                    <a href="/agent-landing.html" class="brand-logo left hide-on-small-only show-on-med-and-up">Agent</a>
+                    <a href="/agent-landing.html" class="brand-logo hide-on-med-and-up show-on-large">Agent</a>
+                    <ul class="right hide-on-small-only">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#properties-view">Properties</a></li>
+                        <li><a href="#about-us">About Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="navbar-fixed hide-on-med-and-up show-on-small">
+            <nav class="main-color white-text">
+                <ul class="center-align">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="property-info-header" class="z-depth-1 white">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <h1 class="property-name main-color-text">Property of Lorem Ipsum</h1>
+                        <p class="property-owned">By <strong class="main-color-text">John Doe</strong></p>
+                        <p class="property-pricing">Starting from <strong class="main-color-text">RM270,000</strong></p>
+                    </div>
+                    <div class="col s12">
+                        <div class="property-address main-color-text valign-wrapper">
+                            <i class="material-icons">location_on</i>
+                            <span class="tooltipped" data-position="top" data-tooltip="Coordinates: 1.505192, 110.297495">Upper Road 3411, no.34, California, USA</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="row">
+            <section id="image-gallery">
+                <div class="col s12 m12 l6">
+                    <div class="carousel full-width-carousel" id="property-carousel">
+                        <div class="carousel-controller">
+                            <a href="javascript:void(0)" onclick="navigatePrev('#property-carousel')" class="prev main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
+                            <a href="javascript:void(0)" onclick="navigateNext('#property-carousel')" class="next main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_right</i></a>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lorempixel.com/1280/800?random=1" alt="1" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lorempixel.com/1280/800?random=2" alt="2" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lorempixel.com/1280/800?random=3" alt="3" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lorempixel.com/1280/800?random=4" alt="4" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lorempixel.com/1280/800?random=5" alt="5" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://lorempixel.com/1280/800?random=6" alt="6" class="fit">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="facts-features">
+                <div class="col s12 m12 l6">
+                    <ul class="tabs">
+                        <li class="tab s4"><a href="#property-details" class="active">Property Details</a></li>
+                        <li class="tab s4"><a href="#photo-gallery">Image Gallery</a></li>
+                        <li class="tab s4"><a href="#video-gallery">Video Gallery</a></li>
+                        <li class="tab s4"><a href="#map">Map</a></li>
+                    </ul>
+                    <div id="property-details" class="tab-content scroll-y">
+                        <div class="narrow-container">
+                            <div class="section">
+                                <table class="no-border">
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <th class="main-color-text">Type:</th>
+                                                <td>Apartment</td>
+                                            </td>
+                                            <td>
+                                                <th class="main-color-text">Units Available:</th>
+                                                <td>200</td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <th class="main-color-text">Lot:</th>
+                                                <td>8,276 sqft</td>
+                                            </td>
+                                            <td>
+                                                <th class="main-color-text">Year built:</th>
+                                                <td>2015</td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <th class="main-color-text">Total Units:</th>
+                                                <td>1,000</td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="section">
+                                <p class="main-color-text default-size-paragraph">Additional details</p>
+                                <p class="default-size-paragraph main-color-text emboldened">Amenities:</p>
+                                <ul class="default-size-paragraph">
+                                    <li>Children's Pool</li>
+                                    <li>Gymnasium</li>      
+                                    <li>24hr Security</li> 
+                                    <li>Jogging Track</li>
+                                    <li>Landscaped Garden</li> 
+                                    <li>Swimming Pool</li>    
+                                    <li>Free WiFi</li> 
+                                    <li>Toilets/Shower Rooms</li>
+                                    <li>Jacuzzi</li>
+                                    <li>Gazebo</li>      
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="photo-gallery" class="tab-content scroll-y">
+                        <div class="carousel film-carousel" id="photo-film-gallery">
+                            <div class="carousel-controller" data-carousel-id="photo-film-gallery">
+                                <a href="javascript:void(0)" onclick="navigatePrev('#photo-film-gallery')" class="prev main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
+                                <a href="javascript:void(0)" onclick="navigateNext('#photo-film-gallery')" class="next main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_right</i></a>
+                            </div>
+                            <div class="carousel-item materialboxed">
+                                <img src="https://lorempixel.com/1280/800?random=7" alt="1">
+                            </div>
+                            <div class="carousel-item materialboxed">
+                                <img src="https://lorempixel.com/1280/800?random=8" alt="2">
+                            </div>
+                            <div class="carousel-item materialboxed">
+                                <img src="https://lorempixel.com/1280/800?random=9" alt="3">
+                            </div>
+                            <div class="carousel-item materialboxed">
+                                <img src="https://lorempixel.com/1280/800?random=10" alt="4">
+                            </div>
+                            <div class="carousel-item materialboxed">
+                                <img src="https://lorempixel.com/1280/800?random=11" alt="5">
+                            </div>
+                            <div class="carousel-item materialboxed">
+                                <img src="https://lorempixel.com/1280/800?random=12" alt="6">
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                    <div id="video-gallery">
+
+                    </div>
+                    <div id="map" class="tab-content">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d498.5552028979452!2d110.2972197!3d1.505195!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x74d945f3ccdf442f!2sP&#39;Residence!5e0!3m2!1sen!2smy!4v1582385505344!5m2!1sen!2smy" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                    </div>
+                </div>
+            </section> 
+        </div>
+        <div class="container">
+            <section id="towers-catalogue">
+                <h1 class="property-section-header">Towers of Property of Lorem Ipsum</h1>
+                <div class="row">
+                    <div class="col s12 m4 l3">
+                        <a href="javascript:void(0)" class="btn btn-large waves-effect waves-light tower-open-modal full-width marginalize main-color" data-tower-position="1">Tower Uno</a>
+                    </div>
+                    <div class="col s12 m4 l3">
+                        <a href="javascript:void(0)" class="btn btn-large waves-effect waves-light tower-open-modal full-width marginalize main-color" data-tower-position="2">Tower Dos</a>
+                    </div>
+                    <div class="col s12 m4 l3">
+                        <a href="javascript:void(0)" class="btn btn-large waves-effect waves-light tower-open-modal full-width marginalize main-color" data-tower-position="3">Tower Tres</a>
+                    </div>
+                    <div class="col s12 m4 l3">
+                        <a href="javascript:void(0)" class="btn btn-large waves-effect waves-light tower-open-modal full-width marginalize main-color" data-tower-position="4">Tower Cuatro</a>
+                    </div>
+                </div>
+            </section>
+            <section id="property-description">
+                <h1 class="property-section-header">Description</h1>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis vel dolore reiciendis libero, et fugiat! Quia eius laboriosam recusandae esse voluptates aliquid illum, rem veritatis maiores tempore quibusdam beatae fuga non sed quos praesentium officiis ducimus molestias ab cum vitae labore voluptas obcaecati. Ratione ad, aut dolorum perspiciatis, officiis, architecto pariatur minima quam similique dicta et debitis. Illo laboriosam eveniet ex. Sequi accusamus aliquid non nemo molestiae, numquam quis quia dignissimos quo architecto distinctio debitis, excepturi a adipisci ipsum eos hic, obcaecati dolore magnam quam. Repudiandae, numquam commodi, earum fugiat doloribus, nulla nihil voluptas praesentium quod recusandae accusantium quis quisquam.</p>
+            </section>
+        </div>
+        <!--FLoating action button-->
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large main-color">
+                <i class="large material-icons">unfold_more</i>
+            </a>
+            <ul>
+                <li><a href="javascript:void(0)" class="btn-floating main-color tooltipped" data-position="left" data-tooltip="Share this property"><i class="material-icons">share</i></a></li>
+                <li><a href="javascript:void(0)" class="btn-floating main-color tooltipped" data-position="left" data-tooltip="Request information"><i class="material-icons">info</i></a></li>
+            </ul>
+        </div>
+        <!--Modal tower area start-->
+        <div class="modal modal-fixed-header full-screen" id="tower-view">
+            <div class="modal-header">
+                <a href="javascript:void(0)" class="modal-close right shift-right btn-flat waves-effect flow-text">
+                    <i class="material-icons left">close</i>
+                    Close
+                </a>
+            </div>
+            <div class="modal-content">
+                <h1 class="property-section-header center-align">Tower Uno</h1>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header main-color">
+                            <h2 class="header-size-sub">Floor 6</h2>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-1</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-2</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-3</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-4</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header main-color">
+                            <h2 class="header-size-sub">Floor 5</h2>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-1</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-2</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-3</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-4</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header main-color">
+                            <h2 class="header-size-sub">Floor 4</h2>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-1</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-2</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-3</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-4</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header main-color">
+                            <h2 class="header-size-sub">Floor 3</h2>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-1</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-2</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-3</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-4</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header main-color">
+                            <h2 class="header-size-sub">Floor 2</h2>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-1</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-2</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-3</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-4</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="collapsible-header main-color">
+                            <h2 class="header-size-sub">Floor 1</h2>
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-1</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-2</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-3</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                                <div class="col s3">
+                                    <div class="unit green">
+                                        <p>B5#1-4</p>
+                                        <p>1680.67 sqft</p>
+                                        <p>Available</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!--Modal unit area start-->
+        <div class="modal modal-fixed-header full-screen" id="unit-preview">
+            <div class="modal-header">
+                <a href="javascript:void(0)" class="modal-close right shift-right btn-flat waves-effect flow-text"><i class="material-icons left">close</i>Close</a>
+            </div>
+            <div class="modal-content">
+                <h3 class="section-header main-color-text">Unit B5#10-1 Details</h3>         
+                <div class="unit-status green">
+                    <span><i class="material-icons">check</i>AVAILABLE</span>
+                </div>            
+                <section id="unit-gallery">
+                    <div class="carousel full-width-carousel" id="unit-gallery-carousel">
+                        <div class="carousel-controller" data-target="unit-gallery-carousel">
+                            <div class="prev valign-wrapper">
+                                <i class="material-icons">keyboard_arrow_left</i>
+                            </div>
+                            <div class="next valign-wrapper">
+                                <i class="material-icons">keyboard_arrow_right</i>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/property/1.jpg" alt="1" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/property/2.jpeg" alt="2" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/property/3.jpg" alt="3" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/property/4.jpg" alt="4" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/property/5.jpg" alt="5" class="fit">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="./img/property/6.jpg" alt="6" class="fit">
+                        </div>
+                    </div>
+                    <img src="./img/plan.jpg" alt="plan" class="responsive-img">
+                </section>
+                <table class="no-border">
+                    <tr>
+                        <th class="main-color-text">Unit Type:</th>
+                        <td>Type A</td>
+                    </tr>
+                    <tr>
+                        <th class="main-color-text">Price:</th>
+                        <td>Negotiable</td>
+                    </tr>
+                    <tr>
+                        <th class="main-color-text">Square Feet:</th>
+                        <td>3210.32 sqft</td>
+                    </tr>
+                    <tr>
+                        <th class="main-color-text">Bathrooms:</th>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <th class="main-color-text">Bedrooms:</th>
+                        <td>2</td>
+                    </tr>
+                    <tr>
+                        <th class="main-color-text">Parkings:</th>
+                        <td>1</td>
+                    </tr>
+                </table>
+                <p class="default-size-paragraph main-color-text">Additional details</p>
+                <ul class="default-size-paragraph">
+                    <li>1 studyroom</li>
+                </ul>
+                <p class="default-size-paragraph main-color-text shift-top">Description</p>
+                <div class="default-size-paragraph">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi omnis quibusdam dolores suscipit tempore harum accusantium temporibus nam cum, porro quod quidem reiciendis magni. Autem sint ipsam iusto porro est eveniet quis assumenda, neque ipsum, ducimus commodi veritatis laborum distinctio aliquid alias, enim quisquam expedita! Iure assumenda voluptatum incidunt iusto.
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.querySelectorAll('.slider');
+            var select = document.querySelectorAll('select');
+            var parallax = document.querySelectorAll('.parallax');
+            var fullWidthCarousel = document.querySelectorAll('.carousel.full-width-carousel');
+            var filmCarousel = document.querySelectorAll('.carousel.film-carousel');
+            var tabs = document.querySelectorAll('.tabs');
+            var materialbox = document.querySelectorAll('.materialboxed');
+            var fixedActionBtn = document.querySelectorAll('.fixed-action-btn');
+            var tooltip = document.querySelectorAll('.tooltipped');
+            var modals = document.querySelectorAll('.modal');
+            var collapsible = document.querySelectorAll('.collapsible');
+
+            M.Slider.init(slider);
+            M.FormSelect.init(select);
+            M.Parallax.init(parallax);
+            M.Tabs.init(tabs);
+            M.Carousel.init(fullWidthCarousel, {
+                fullWidth: true
+            });
+            M.Carousel.init(filmCarousel, {
+                dist: 0,
+                fullWidth: true
+            });
+            M.Materialbox.init(materialbox);
+            M.FloatingActionButton.init(fixedActionBtn);
+            M.Tooltip.init(tooltip);
+            M.Modal.init(modals);
+            M.Collapsible.init(collapsible);
+
+            document.querySelectorAll('.tower-open-modal').forEach(function (button) {
+                button.addEventListener('click', function(e) {
+                    var tower_modal = M.Modal.getInstance(document.querySelector('#tower-view'));
+
+                    tower_modal.open();
+                });
+            });
+        });
+    </script>
+    <script>
+        function navigatePrev(id) {
+            var carouselInstance = M.Carousel.getInstance(document.querySelector(id));
+            carouselInstance.prev();
+        }
+
+        function navigateNext(id) {
+            var carouselInstance = M.Carousel.getInstance(document.querySelector(id));
+            carouselInstance.next();
+        }
+    </script>
+</body>
+</html>

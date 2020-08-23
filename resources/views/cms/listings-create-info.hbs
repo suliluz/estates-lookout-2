@@ -1,0 +1,253 @@
+<section id="create-listing">
+    <div class="container">
+        {{#if (not @root.data.project)}}
+            <div class="row marginalize-vertical">
+                <div class="col m3">
+                    <p>Currently Creating:</p>
+                </div>
+                <div class="col m3">
+                    <select id="listing-creation">
+                        <option value="/cms/listings/create/single-listing">Single Listing</option>
+                        <option value="/cms/listings/create/info-listing" selected="selected">Info Listing</option>
+                        <option value="/cms/listings/create/detailed-listing">Detailed Listing</option>
+                    </select>
+                </div>
+            </div>
+        {{/if}}
+        <form action="{{#if @root.data.project}}/cms/listings/edit-project{{else}}/cms/listings/create-info{{/if}}" method="post">
+            {{#if @root.data.project}}
+                <input type="hidden" name="projectId" value="{{ @root.data.project._id}}">
+                <input type="hidden" name="createType" value="{{@root.data.project.creation_type}}">
+            {{/if}}
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Name:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="name" id="name" placeholder="Property name" value="{{@root.data.project.name}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Description:</p>
+                </div>
+                <div class="col s12 m8">
+                    <textarea name="description" id="description" placeholder="Property description">{{@root.data.project.description}}</textarea>
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Type:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="type" id="type" placeholder="Property type" value="{{@root.data.project.property_type}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Address:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="address" id="address" placeholder="Property street address" value="{{@root.data.project.street_address}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Coordinates:</p>
+                </div>
+                <div class="col s6 m4 input-field">
+                    <input type="text" name="coordinates[latitude]" id="latitude" value="{{@root.data.project.coordinates.latitude}}">
+                    <label for="latitude">Latitude</label>
+                </div>
+                <div class="col s6 m4 input-field">
+                    <input type="text" name="coordinates[longitude]" id="longitude" value="{{@root.data.project.coordinates.longitude}}">
+                    <label for="longitude">Longitude</label>
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Postcode:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="postcode" id="postcode" placeholder="Property postcode" value="{{@root.data.project.postcode}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>City:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="city" id="city" placeholder="City" value="{{@root.data.project.city}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>State:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="state" id="state" placeholder="State" value="{{@root.data.project.state}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Country:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="country" id="country" placeholder="Country" value="{{@root.data.project.country}}">
+                </div>
+            </div>`
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Additional Information</p>
+                </div>
+                <div class="col s12 m8">
+                    <textarea name="additional_info" id="additional_info" placeholder="Additional information">{{@root.data.project.additional_info}}</textarea>
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Slider photos:</p>
+                </div>
+                <div class="col s12 m8">
+
+                        <div class="file-input-btn" data-file-type="photo" data-file-count="10" data-file-constraints="size:1280x720" data-input-name="slider_photos">
+                            <i class="material-icons">insert_photo</i>
+                            <p>Insert Photos</p>
+                            {{#each @root.data.project.slider_photos}}
+                                <input type="hidden" name="slider_photos[]" value="{{this}}">
+                            {{/each}}
+                        </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Photo Gallery:</p>
+                </div>
+                <div class="col s12 m8">
+                    <div class="file-input-btn" data-file-type="photo" data-file-count="infinity" data-input-name="photos">
+                        <i class="material-icons">burst_mode</i>
+                        <p>Insert Photos</p>
+                        {{#each @root.data.project.photos}}
+                            <input type="hidden" name="photos[]" value="{{this}}">
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Video Gallery:</p>
+                </div>
+                <div class="col s12 m8">
+                    <div class="file-input-btn" data-file-type="video" data-file-count="infinity">
+                        <i class="material-icons">videocam</i>
+                        <p>Insert Videos</p>
+                        {{#each @root.data.project.videos}}
+                            <input type="hidden" name="videos[]" value="{{this}}">
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Documents/Brochures:</p>
+                </div>
+                <div class="col s12 m8">
+                    <div class="file-input-btn" data-file-type="any" data-file-count="infinity" data-input-name="documents">
+                        <i class="material-icons">insert_drive_file</i>
+                        <p>Insert Files</p>
+                        {{#each @root.data.project.documents}}
+                            <input type="hidden" name="documents[]" value="{{this}}">
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="row">
+                <div class="col s12 m4">
+                    <p>Property Information:</p>
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Number of Towers:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="tower_count" id="tower_count" placeholder="Number of towers">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Number of Units:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="units_count" id="units_count" placeholder="Number of units">
+                </div>
+            </div>
+            <ul class="collapsible">
+                {{#if @root.data.project.metadata.unit_type}}
+                    {{#each @root.data.project.metadata.unit_type}}
+                        <li>
+                            <div class="collapsible-header">
+                                <input type="text" name="unit_type[{{@index}}][name]" placeholder="Unit type name" value="{{this.name}}">
+                            </div>
+                            <div class="collapsible-body">
+                                <div class="row">
+                                    <div class="col s6 m3 input-field">
+                                        <input type="number" name="unit_type[{{@index}}][bathrooms]" id="bathrooms{{@index}}" value="{{this.bathrooms}}">
+                                        <label for="bathrooms{{@index}}">Bathrooms</label>
+                                    </div>
+                                    <div class="col s6 m3 input-field">
+                                        <input type="number" name="unit_type[{{@index}}][bedrooms]" id="bedrooms{{@index}}" value="{{this.bedrooms}}">
+                                        <label for="bedrooms{{@index}}">Bedrooms</label>
+                                    </div>
+                                    <div class="col s6 m3 input-field">
+                                        <input type="number" name="unit_type[{{@index}}][parkings]" id="parkings{{@index}}" value="{{this.parkings}}">
+                                        <label for="parkings{{@index}}">Parkings</label>
+                                    </div>
+                                    <div class="col s6 m3 input-field">
+                                        <input type="text" name="unit_type[{{@index}}][sqft]" id="sqft{{@index}}" value="{{this.sqft}}">
+                                        <label for="sqft{{@index}}">Square Feet</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    {{/each}}
+                {{else}}
+                    <li>
+                        <div class="collapsible-header">
+                            <input type="text" name="unit_type[0][name]" placeholder="Unit type name">
+                        </div>
+                        <div class="collapsible-body">
+                            <div class="row">
+                                <div class="col s6 m3 input-field">
+                                    <input type="number" name="unit_type[0][bathrooms]" id="bathrooms0">
+                                    <label for="bathrooms0">Bathrooms</label>
+                                </div>
+                                <div class="col s6 m3 input-field">
+                                    <input type="number" name="unit_type[0][bedrooms]" id="bedrooms0">
+                                    <label for="bedrooms0">Bedrooms</label>
+                                </div>
+                                <div class="col s6 m3 input-field">
+                                    <input type="number" name="unit_type[0][parkings]" id="parkings0">
+                                    <label for="parkings0">Parkings</label>
+                                </div>
+                                <div class="col s6 m3 input-field">
+                                    <input type="text" name="unit_type[0][sqft]" id="sqft0">
+                                    <label for="sqft0">Square Feet</label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                {{/if}}
+            </ul>
+            <button class="btn action-btn" id="add-unit-type"><i class="material-icons">add</i>Add more unit types</button>
+            <div class="col s12 marginalize-vertical">
+                <button type="submit" class="btn-large green"><i class="material-icons left">check</i>Save and Upload</button>
+            </div>
+        </form>
+    </div>
+</section>
+{{> cms/gallery-modal}}

@@ -1,0 +1,65 @@
+<section id="create-appointment" class="section">
+    <div class="container">
+        <div class="section">
+            <form action="/cms/appointments/edit" method="post">
+                <input type="hidden" name="appointmentId" value="{{@root.data.appointment._id}}">
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Appointment Title:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="title" id="title" placeholder="Enter appointment title" value="{{@root.data.appointment.title}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Date:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="date" id="date" class="datepicker" placeholder="Pick date of appointment" value="{{moment_format @root.data.appointment.date "MMM DD, YYYY"}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Start time:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="start_time" id="start-time" class="timepicker" placeholder="Pick starting time of appointment" value="{{moment_format @root.data.appointment.start_time "hh:mm A"}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>End time:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="end_time" id="end-time" class="timepicker" placeholder="Pick end time for appointment" value="{{moment_format @root.data.appointment.end_time "hh:mm A"}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Appointment For:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="appointment_for" id="appointment-for" placeholder="Appointment for" value="{{@root.data.appointment.appointment_for}}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 m4">
+                        <p>Details:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <textarea name="details" id="details" placeholder="Appointment details">{{@root.data.appointment.details}}</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <button type="submit" class="btn action-btn">
+                            <i class="material-icons left">check</i>
+                            Finish Editing Appointment
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

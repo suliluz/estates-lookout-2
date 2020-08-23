@@ -1,0 +1,14 @@
+<ul class="collection">
+    {{#each @root.data.users}}
+        <li class="collection-item avatar">
+            {{#if this.profile_photo}}
+                <img src="/media/{{this.profile_photo}}" alt="{{this.first_name}}" class="circle">
+            {{else}}
+                <i class="material-icons circle">person</i>
+            {{/if}}
+            <p>{{concat this.first_name this.last_name}}</p>
+            <p>{{this.platform.qualifiedName}}.estateslookout.com</p>
+            <a href="javascript:void(0)" class="unassign-agent-btn btn-large action-btn secondary-content" data-agent-id="{{this.platform._id}}" data-agent-name="{{concat this.first_name this.last_name}}">Delete</a>
+        </li>
+    {{/each}}
+</ul>

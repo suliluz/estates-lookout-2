@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listings | Estates Lookout</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.css">
+    <link rel="stylesheet" href="./css/cms.css">
+</head>
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav id="cms-navbar">
+                <div class="nav-wrapper">
+                    <a href="/cms/create-listing" class="brand-logo left">
+                        <img src="./img/logo/platform-logo.png" alt="logo">
+                    </a>
+                    <ul id="large-navbar-navigation" class="hide-on-med-and-down show-on-large-only">
+                        <li><a href="/cms/listings">Create &amp Assign</a></li>
+                        <li><a href="/cms/appointments">Appointment</a></li>
+                        <li><a href="/cms/leads">Leads</a></li>
+                        <li><a href="/cms/report-bug">Report a Bug</a></li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down show-on-large-only">
+                        <li>
+                            <a id="notification-btn" class="dropdown-trigger valign-wrapper" href="javascript:void(0)" data-target="notification-window">
+                                <i class="material-icons">notifications</i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="valign-wrapper dropdown-trigger avatar-call-to-action" data-target="avatar-call-to-action-dropdown">
+                                <img src="./img/square-profile-pic-2.jpg" alt="profile_pic" class="circle">
+                                <span class="name">John Doe</span>
+                                <i class="material-icons">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="right hide-on-large-only show-on-medium-and-down">
+                        <li>
+                            <a href="javascript:void(0)" class='dropdown-trigger' data-target="navigation-menu">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div id="notification-window" class="dropdown-content navigation-dropdown">
+            <ul class="collection">
+                <li class="collection-item avatar">
+                    <i class="material-icons circle main-color">notifications</i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                    <p class="right-align">17/01/2019 00:23</p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle main-color">notifications</i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                    <p class="right-align">17/01/2019 00:23</p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle main-color">notifications</i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                    <p class="right-align">17/01/2019 00:23</p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle main-color">notifications</i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                    <p class="right-align">17/01/2019 00:23</p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle main-color">notifications</i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                    <p class="right-align">17/01/2019 00:23</p>
+                </li>
+                <li class="collection-item avatar">
+                    <i class="material-icons circle main-color">notifications</i>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                    <p class="right-align">17/01/2019 00:23</p>
+                </li>
+            </ul>
+        </div>
+        <ul id="avatar-call-to-action-dropdown" class="dropdown-content navigation-dropdown main-color-text">
+            <li>
+                <a href="/cms/profile-settings">
+                    <i class="material-icons">face</i>
+                    Account Settings
+                </a>
+            </li>
+            <li>
+                <a href="/cms/platform-settings">
+                    <i class="material-icons">settings_applications</i>
+                    Platform Settings
+                </a>
+            </li>
+            <li>
+                <a href="/cms/logout">
+                    <i class="material-icons">exit_to_app</i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+        <ul id="navigation-menu" class="dropdown-content navigation-dropdown main-color-text">
+            <li>
+                <a href="/cms/listings">
+                    <i class="material-icons">create</i>
+                    Create &amp Assign
+                </a>
+            </li>
+            <li>
+                <a href="/cms/appointments">
+                    <i class="material-icons">assignment_ind</i>
+                    Appointment
+                </a>
+            </li>
+            <li>
+                <a href="/cms/leads">
+                    <i class="material-icons">sms</i>
+                    Leads
+                </a>
+            </li>
+            <li>
+                <a href="/cms/report-bug">
+                    <i class="material-icons">bug_report</i>
+                    Report a Bug
+                </a>
+            </li>
+            <li>
+                <a href="/cms/profile-settings">
+                    <i class="material-icons">face</i>
+                    Account Settings
+                </a>
+            </li>
+            <li>
+                <a href="/cms/platform-settings">
+                    <i class="material-icons">settings_applications</i>
+                    Platform Settings
+                </a>
+            </li>
+            <li>
+                <a href="/cms/logout">
+                    <i class="material-icons">exit_to_app</i>
+                    Logout
+                </a>
+            </li>
+            <li>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header">Notifications</div>
+                        <div class="collapsible-body">
+                            <ul class="collection">
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle main-color">notifications</i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                                    <p class="right-align">17/01/2019 00:23</p>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle main-color">notifications</i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                                    <p class="right-align">17/01/2019 00:23</p>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle main-color">notifications</i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                                    <p class="right-align">17/01/2019 00:23</p>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle main-color">notifications</i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                                    <p class="right-align">17/01/2019 00:23</p>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle main-color">notifications</i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                                    <p class="right-align">17/01/2019 00:23</p>
+                                </li>
+                                <li class="collection-item avatar">
+                                    <i class="material-icons circle main-color">notifications</i>
+                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                                    <p class="right-align">17/01/2019 00:23</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                        <p class="right-align">17/01/2019 00:23</p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                        <p class="right-align">17/01/2019 00:23</p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                        <p class="right-align">17/01/2019 00:23</p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                        <p class="right-align">17/01/2019 00:23</p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                        <p class="right-align">17/01/2019 00:23</p>
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem, consectetur!</p>
+                        <p class="right-align">17/01/2019 00:23</p>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            M.AutoInit();
+        });
+    </script>
+</body>
+</html>

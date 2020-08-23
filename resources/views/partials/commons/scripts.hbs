@@ -1,0 +1,67 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.js" integrity="sha512-m2PhLxj2N91eYrIGU2cmIu2d0SkaE4A14bCjVb9zykvp6WtsdriFCiXQ/8Hdj0kssUB/Nz0dMBcoLsJkSCto0Q==" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.min.js"></script>
+{{> @partial-block}}
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var fullWidthCarousel = document.querySelectorAll('.carousel.full-width-carousel');
+        var filmCarousel = document.querySelectorAll('.carousel.film-carousel');
+        var fixedActionBtn = document.querySelectorAll('.fixed-action-btn');
+        var slider = document.querySelectorAll('.slider');
+
+        M.FloatingActionButton.init(fixedActionBtn);
+        
+        M.Slider.init(slider);
+
+        document.querySelectorAll('.tower-open-modal').forEach(function (button) {
+            button.addEventListener('click', function(e) {
+                var tower_modal = M.Modal.getInstance(document.querySelector('#tower-view'));
+
+                tower_modal.open();
+            });
+        });
+
+        if(fullWidthCarousel) {
+            M.Carousel.init(fullWidthCarousel, {
+                fullWidth: true
+            });
+        }
+
+        if(filmCarousel) {
+            M.Carousel.init(filmCarousel, {
+                dist: 0,
+                fullWidth: true
+            });
+        }
+    });
+
+    {{#if @root.platform.footer_slider.slides}}
+        window.setInterval(function() {
+            M.Carousel.getInstance(document.querySelector('#footer-carousel')).next();
+        }, 5000);
+    {{/if}}
+</script>
+<script>
+    function navigatePrev(id) {
+        var carouselInstance = M.Carousel.getInstance(document.querySelector(id));
+        carouselInstance.prev();
+    }
+
+    function navigateNext(id) {
+        var carouselInstance = M.Carousel.getInstance(document.querySelector(id));
+        carouselInstance.next();
+    }
+
+    function initFullWidthCarousel() {
+        var fullWidthCarousel = document.querySelectorAll('.carousel.full-width-carousel');
+
+        M.Carousel.init(fullWidthCarousel, {
+            fullWidth: true
+        });
+    }
+</script>
+{{#each @root.extras.js}}<script src="{{this}}"></script>{{/each}}
+{{#if @root.extras.textjs}}
+    <script>
+        {{{@root.extras.textjs}}}
+    </script>
+{{/if}}

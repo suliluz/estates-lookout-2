@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Landing Page</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.css">
+    <link rel="stylesheet" href="./css/agentpage.css">
+</head>
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="main-color white-text">
+                <div class="nav-wrapper container">
+                    <a href="/agent-landing.html" class="brand-logo left hide-on-small-only show-on-med-and-up">Agent</a>
+                    <a href="/agent-landing.html" class="brand-logo hide-on-med-and-up show-on-large">Agent</a>
+                    <ul class="right hide-on-small-only">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#properties-view">Properties</a></li>
+                        <li><a href="#about-us">About Us</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div class="navbar-fixed hide-on-med-and-up show-on-small">
+            <nav class="main-color white-text">
+                <ul class="center-align">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Properties</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section id="welcome-screen-slider" class="slider">
+            <ul class="slides">
+                <li>
+                    <img src="https://lorempixel.com/1280/800?random=1" alt="">
+                </li>
+                <li>
+                    <img src="https://lorempixel.com/1280/800?random=2" alt="">
+                </li>
+                <li>
+                    <img src="https://lorempixel.com/1280/800?random=3" alt="">
+                </li>
+                <li>
+                    <img src="https://lorempixel.com/1280/800?random=4" alt="">
+                </li>
+                <li>
+                    <img src="https://lorempixel.com/1280/800?random=5" alt="">
+                </li>
+            </ul>
+        </section>
+        <div class="search-header main-color">SEARCH FOR YOUR HOME</div>
+        <section id="search-area" class="row">
+            <div class="col s12">
+                <div class="container">
+                    <div class="card">
+                        <div class="card-content">
+                            <form action="#" method="get">
+                                <div class="row">
+                                    <div class="input-field col s12">
+                                        <input type="text" id="keyword">
+                                        <label for="keyword">Keyword</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <select name="city" id="city">
+                                            <option value="all" selected>All cities</option>
+                                            <option value="kuching">Kuching</option>
+                                            <option value="sibu">Sibu</option>
+                                            <option value="mukah">Mukah</option>
+                                        </select>
+                                        <label for="City">City</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <select name="property_type" id="property-type">
+                                            <option value="all" selected>All Types</option>
+                                            <option value="suburban">Suburban</option>
+                                            <option value="shoplot">Shoplot</option>
+                                            <option value="bungalow">Bungalow</option>
+                                            <option value="apartment">Apartment</option>
+                                        </select>
+                                        <label for="property-type">Property Type</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <input type="number" name="number_of_bedrooms" id="bedrooms">
+                                        <label for="bedrooms">Number of bedrooms</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <input type="number" name="number_of_bathrooms" id="bathrooms">
+                                        <label for="bathrooms">Number of bathrooms</label>
+                                    </div>
+                                    <div class="input-field col s12 m6 l4">
+                                        <input type="number" name="number_of_parkings" id="parkings">
+                                        <label for="parkings">Number of parkings</label>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="properties-view">
+            <div class="container">
+                <h3 class="section-header">Featured Properties</h3>
+                <h4 class="section-description center-align main-color-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, sapiente!</h4>
+                <div class="linear-spacing"></div>
+                <div class="row">
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col s12 m6 l4">
+                        <a href="./view-property.html" class="black-text">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img src="https://picsum.photos/id/1/720/480" alt="img1">
+                                    <span class="card-purchase-type main-color">For Sale</span>
+                                    <span class="card-price main-color-text">MYR10 000</span>
+                                </div>
+                                <div class="card-content">
+                                    <span class="card-title">Suburban in Malaysia</span>
+                                    <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>Upper Road 3411, no.34 CA</span>
+                                    <span class="property-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde odit magnam nemo accusamus, exercitationem ratione. Maiores eum repellat animi quas.</span>
+                                    <div class="row">
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">bathtub</i>
+                                                <span class="count">3</span>
+                                            </span>
+                                        </div>
+                                        <div class="col s3">
+                                            <span class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">hotel</i>
+                                                <span class="count">2</span>
+                                            </span>   
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">directions_car</i>
+                                                <span class="count">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="col s3">
+                                            <div class="property-detail-pill valign-wrapper">
+                                                <i class="material-icons main-color-text">square_foot</i>
+                                                <span class="count">2577.2</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about-us" class="section">
+            <div class="parallax full-width">
+                <div class="parallax-container">
+                    <img src="https://picsum.photos/1920/1080?random=6" alt="">
+                </div>
+            </div>
+            <div class="container">
+                <h3 class="section-header">About Us</h3>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="logo-about-us">
+                            <img src="http://lorempixel.com/400/200/" alt="">
+                        </div>
+                    </div>
+                    <div class="col s10 offset-s1">
+                        <div class="about-us-content">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint ullam, obcaecati explicabo harum adipisci vel temporibus eligendi aspernatur dolores officia fuga delectus alias a facere deserunt eum ad et vero esse dicta asperiores excepturi nulla minus. Aliquam odio molestiae error assumenda cum autem consequatur laborum inventore fugit, quisquam repudiandae recusandae!
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="parallax full-width">
+            <div class="parallax-container">
+                <img src="https://picsum.photos/1920/1080?random=7" alt="">
+            </div>
+        </div>
+    </main>
+    <footer class="main-color section">
+        <div class="container">
+            <div class="row">
+                <div class="col m4 offset-m2 s12">
+                    <p class="footer-section-header">Contact Us</p>
+                    <div class="footer-detail-pill valign-wrapper">
+                        <i class="material-icons">call</i>
+                        <span class="value">+60123456789</span>
+                    </div>
+                    <div class="footer-detail-pill valign-wrapper">
+                        <i class="material-icons">email</i>
+                        <span class="value">johndoe@example.com</span>
+                    </div>
+                    <div class="footer-detail-pill valign-wrapper">
+                        <i class="material-icons">location_on</i>
+                        <span class="value">2067 G Jln Utama 93450Kuching Sarawak 93450 MalaysiaSarawak 93450 Malaysia</span>
+                    </div>
+                </div>
+                <div class="col m4 offset-m2 s12">
+                    <p class="footer-section-header">Useful Links</p>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                    <a href="#" class="useful-link">About Us</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var slider = document.querySelectorAll('.slider');
+            var select = document.querySelectorAll('select');
+            var parallax = document.querySelectorAll('.parallax');
+
+            M.Slider.init(slider);
+            M.FormSelect.init(select);
+            M.Parallax.init(parallax);
+        });
+    </script>
+</body>
+</html>

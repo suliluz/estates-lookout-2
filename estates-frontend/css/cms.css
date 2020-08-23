@@ -1,0 +1,41 @@
+body {
+  font-size: 62.5%; }
+
+p {
+  font-size: 1rem; }
+
+.main-color-text * {
+  color: #3b5998 !important; }
+
+#cms-navbar {
+  background: #3b5998; }
+  #cms-navbar .nav-wrapper {
+    padding-left: 3rem; }
+  #cms-navbar .brand-logo {
+    width: 6rem;
+    height: 95%; }
+    #cms-navbar .brand-logo img {
+      width: 100%;
+      height: 100%; }
+  #cms-navbar #large-navbar-navigation {
+    margin-left: 8rem; }
+  #cms-navbar #notification-btn i {
+    margin-right: 0.5rem; }
+  #cms-navbar .avatar-call-to-action {
+    border-left: 0.1rem solid white;
+    text-align: center;
+    width: 13rem; }
+    #cms-navbar .avatar-call-to-action img {
+      width: 3.5rem;
+      height: 3.5rem; }
+    #cms-navbar .avatar-call-to-action span.name {
+      margin-left: 0.5rem;
+      font-weight: bold; }
+  #cms-navbar #avatar-call-to-action-dropdown {
+    width: 15rem !important; }
+  #cms-navbar .navigation-dropdown {
+    top: 65px !important; }
+  #cms-navbar #notification-window {
+    width: 20% !important; }
+  #cms-navbar #navigation-menu {
+    width: 100% !important; }

@@ -1,0 +1,111 @@
+<div class="modal modal-fixed-header full-screen" id="gallery-modal">
+    <div class="modal-header fixed main-color-text">
+        <a href="javascript:void(0)" onclick="appendGalleryInput()" class="modal-close right shift-right btn-flat waves-effect flow-text"><i class="material-icons left">close</i>Close</a>
+    </div>
+    <div class="modal-content">
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs shift-bottom">
+                    <li class="tab col s6"><a class="active" href="#from-gallery">From Gallery</a></li>
+                    <li class="tab col s6"><a href="#upload-file">Upload/External Link</a></li>
+                </ul>
+            </div>
+            <div class="col s12">
+                <div class="row">
+                    <div class="col m4">
+                        <p>Category:</p>
+                    </div>
+                    <div class="col m8 input-field">
+                        <input type="text" id="filter-category" class="filter-category">
+                        <label for="filter-category">Category</label>
+                    </div>
+                </div>
+                <div id="from-gallery"></div>
+                <div id="upload-file">
+                    <div class="section">
+                        <div class="switch">
+                            <label>
+                                Single
+                                <input type="checkbox" id="upload-file-mode" checked="">
+                                <span class="lever"></span>
+                                Express
+                            </label>
+                        </div>
+                        <form action="#" method="post" enctype="multipart/form-data" id="upload-file-form">
+                            <div id="multiple-upload-mode">
+                                <div class="file-field input-field">
+                                    <div class="btn">
+                                        <span>Media</span>
+                                        <input id="files" multiple name="files" type="file">
+                                    </div>
+                                    <div class="file-path-wrapper shift-bottom">
+                                        <input class="file-path validate" placeholder="Add one or more files" type="text">
+                                    </div>
+                                </div>
+                                <div class="submit-container">
+                                    <button class="btn main-color" type="submit"><i class="material-icons right">send</i>Send</button>
+                                </div>
+                            </div>
+                            <p class="center-align">- OR -</p>
+                            <div id="single-upload-mode">
+                                <div class="row input-field">
+                                    <div class="col m4 s12">
+                                        <p>Display Name:</p>
+                                    </div>
+                                    <div class="col m8 s12">
+                                        <input type="text" name="displayName" placeholder="File name" disabled>
+                                    </div>
+                                </div>
+                                <div class="row input-field">
+                                    <div class="col m4 s12">
+                                        <p>Caption</p>
+                                    </div>
+                                    <div class="col m8 s12">
+                                        <input type="text" name="caption" placeholder="Caption" disabled>
+                                    </div>
+                                </div>
+                                <div class="row input-field">
+                                    <div class="col m4 s12">
+                                        <p>Category</p>
+                                    </div>
+                                    <div class="col m8 s12">
+                                        <input type="text" name="category" placeholder="Media category" disabled>
+                                    </div>
+                                </div>
+                                <div class="row input-field">
+                                    <div class="col m4 s12">
+                                        <p>File</p>
+                                    </div>
+                                    <div class="col m8 s12">
+                                        <div class="file-field input-field">
+                                            <div class="btn">
+                                                <span>Media</span>
+                                                <input id="file" name="file" type="file" disabled>
+                                            </div>
+                                            <div class="file-path-wrapper shift-bottom">
+                                                <input class="file-path validate" placeholder="Add one file" type="text" disabled>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="submit-container">
+                                        <button class="btn main-color disabled" type="submit"><i class="material-icons right">send</i>Send</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{#> cms/components/modal modalId="delete-confirmation-modal" modalStyle="width: 50%;"}}
+    <p>Are you sure you want to delete <span id="media-delete-confirmation-name"></span>?</p>
+    <form action="#" id="delete-media-submission" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="mediaId" id="media-delete-confirmation-id">
+        <p class="center-align">
+            <button type="submit" class="btn green">Yes</button>
+            <button class="btn red modal-close">No</button>
+        </p>
+    </form>
+{{/ cms/components/modal}}

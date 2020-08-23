@@ -1,0 +1,55 @@
+{{!--
+TODO Appointments Page
+1. Link appointments page to backend
+2. Add appointment id in every link
+--}}
+
+<section class="section" id="appointments">
+    <div class="container">
+        <div class="section">
+            <a href="/cms/appointments/create" class="btn action-btn">
+                <i class="material-icons left">add</i>
+                Create Appointment
+            </a>
+        </div>
+        <div class="row">
+            {{#if @root.data.appointments}}
+                {{#each @root.data.appointments}}
+                    <div class="col s12 m6 l4">
+                        <div class="card-panel">
+                            <h3 class="appointment-title center-align">{{this.title}}</h3>
+                            <p><span class="emboldened">Date: </span>{{moment_date this.date}}</p>
+                            <p><span class="emboldened">Time: </span>{{moment_time this.start_time}} - {{moment_time this.end_time}}</p>
+                            <p><span class="emboldened">Appointment For: </span>{{this.appointment_for}}</p>
+                            <div class="divider"></div>
+                            <p class="emboldened">Details</p>
+                            <p>{{this.details}}</p>
+                            <div class="row">
+                                <div class="col s12">
+                                    <a href="/cms/appointments/edit/{{this._id}}" class="btn action-btn full-width">Edit</a>
+                                </div>
+                                <div class="col s12">
+                                    <a href="javascript:void(0)" class="btn action-btn full-width appointment-delete" data-appointment-title="{{this.title}}" data-appointment-id="{{this._id}}">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            {{/if}}
+        </div>
+    </div>
+</section>
+{{#> cms/components/modal modalId="delete-appointment-modal" modalStyle="width: 50%;"}}
+    <p>Are you sure you want to delete appointment <span id="appointment-title-confirmation" class="emboldened"></span>?</p>
+    <form action="/cms/appointments/delete" method="post">
+        <input type="hidden" name="appointmentId" id="appointment-id-confirmation">
+        <div class="row">
+            <div class="col s4">
+                <input type="submit" value="Confirm" class="btn green">
+            </div>
+            <div class="col s4">
+                <a href="javascript:void(0)" class="modal-close btn red">Cancel</a>
+            </div>
+        </div>
+    </form>
+{{/cms/components/modal}}

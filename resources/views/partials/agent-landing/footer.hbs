@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="row">
+        <div class="col m4 s12">
+            <p class="footer-section-header">Hours</p>
+            {{#each @root.platform.business_hours}}
+                <div class="footer-hour-pill">
+                    <span>{{this.days}}</span>
+                    <span>{{this.time}}</span>
+                </div>
+            {{/each}}
+            <br>
+            <div class="footer-detail-pill valign-wrapper">
+                <i class="material-icons">call</i>
+                <span class="value">{{this.contact_mobile}}</span>
+            </div>
+            <div class="footer-detail-pill valign-wrapper">
+                <i class="material-icons">email</i>
+                <span class="value">{{this.contact_email}}</span>
+            </div>
+            <div class="footer-detail-pill valign-wrapper">
+                <i class="material-icons">location_on</i>
+                <span class="value">{{this.business_address}}</span>
+            </div>
+        </div>
+        <div class="col m4 s12">
+            <p class="footer-section-header center-align">Useful Links</p>
+            {{#each @root.platform.useful_links}}
+                <a href="{{this.link_url}}" class="useful-link">{{this.link_label}}</a>
+            {{/each}}
+        </div>
+        <div class="col s12 m4">
+            <p class="footer-section-header">{{@root.platform.footer_slider.header}}</p>
+            {{#if @root.platform.footer_slider.slides}}
+                <div class="carousel full-width-carousel" id="footer-carousel">
+                    <div class="carousel-controller">
+                        <a href="javascript:void(0)" onclick="navigatePrev('#footer-carousel')" class="prev main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
+                        <a href="javascript:void(0)" onclick="navigateNext('#footer-carousel')" class="next main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_right</i></a>
+                    </div>
+                    {{#each @root.platform.footer_slider.slides}}
+                        <div class="carousel-item">
+                            <img src="/media/{{this}}" alt="{{this}}" class="responsive-img">
+                        </div>
+                    {{/each}}
+                </div>
+            {{/if}}
+        </div>
+    </div>
+</div>
+<div class="copyright-container">
+    <p class="center-align">Copyright &copy;<script>document.write(`${new Date().getFullYear()}`);</script> Inspitium Technology. All rights reserved</p>
+</div>

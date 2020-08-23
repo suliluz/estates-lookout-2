@@ -1,0 +1,60 @@
+<h3 class="section-header main-color-text">{{@root.data.unit.name}} Details</h3>
+{{#if (equals @root.data.unit.status "available")}}
+    <div class="unit-status green">
+        <span><i class="material-icons">check</i>AVAILABLE</span>
+    </div>
+{{else if (equals @root.data.unit.status "sold")}}
+    <div class="unit-status red">
+        <span><i class="material-icons">do_not_disturb</i>SOLD</span>
+    </div>
+{{else}}
+    <div class="unit-status purple">
+        <span><i class="material-icons">flag</i>RESERVED</span>
+    </div>
+{{/if}}
+
+<section class="unit-gallery">
+    {{#if @root.data.unit.photos}}
+        <div class="carousel full-width-carousel" id="unit-gallery-carousel">
+            <div class="carousel-controller">
+                <a href="javascript:void(0)" onclick="navigatePrev('#unit-gallery-carousel')" class="prev main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_left</i></a>
+                <a href="javascript:void(0)" onclick="navigateNext('#unit-gallery-carousel')" class="next main-color btn-floating waves-effect waves-light"><i class="material-icons">keyboard_arrow_right</i></a>
+            </div>
+            {{#each @root.data.unit.photos}}
+                <div class="carousel-item">
+                    <img src="/media/{{this}}" alt="{{@index}}" class="fit">
+                </div>
+            {{/each}}
+        </div>
+    {{/if}}
+</section>
+<table class="no-border">
+    <tr>
+        <th class="main-color-text">Unit Type:</th>
+        <td>{{@root.data.unit.unit_type}}</td>
+    </tr>
+    <tr>
+        <th class="main-color-text">Price:</th>
+        <td>{{@root.data.unit.price}}</td>
+    </tr>
+    <tr>
+        <th class="main-color-text">Square Feet:</th>
+        <td>{{@root.data.unit.sqft}} sqft</td>
+    </tr>
+    <tr>
+        <th class="main-color-text">Bathrooms:</th>
+        <td>{{@root.data.unit.bathrooms}}</td>
+    </tr>
+    <tr>
+        <th class="main-color-text">Bedrooms:</th>
+        <td>{{@root.data.unit.bedrooms}}</td>
+    </tr>
+    <tr>
+        <th class="main-color-text">Parkings:</th>
+        <td>{{@root.data.unit.parkings}}</td>
+    </tr>
+</table>
+<p class="default-size-paragraph main-color-text">Additional details</p>
+<p style="font-size: 1.1rem">{{{@root.data.unit.additional_info}}}</p>
+<p class="default-size-paragraph main-color-text shift-top">Description</p>
+<p style="font-size: 1.1rem">{{{@root.data.unit.description}}}</p>

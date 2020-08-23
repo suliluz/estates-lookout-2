@@ -1,0 +1,223 @@
+<section id="edit-platform">
+    <div class="container">
+        <form action="/cms/edit-platform" method="post">
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Platform Name</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="platform[name]" placeholder="Please enter your platform name" type="text" value="{{@root.data.platform.name}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Platform Subdomain</p>
+                </div>
+                <div class="col s5 m4">
+                    <input class="validate" name="platform[qualifiedName]" placeholder="Please enter your platform subdomain" type="text" value="{{@root.data.platform.qualifiedName}}">
+                </div>
+                <div class="col s3 m4">
+                    <p>.estateslookout.com</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Page Title</p>
+                </div>
+                <div class="col s12 m10">
+                    <input type="text" name="platform[landing_page_title]" id="landing-page-title" value="{{@root.data.platform.landing_page_title}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Individual Type</p>
+                </div>
+                <div class="col s12 m10">
+                    <select name="platform[owner_type]">
+                        {{#if (equals @root.data.platform.platform_type "individual")}}
+                            <option value="agent" selected="selected">Agent</option>
+                        {{else}}
+                            <option value="company">Company</option>
+                            <option value="group">Group</option>
+                        {{/if}}
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Theme Color</p>
+                </div>
+                <div class="col s12 m10">
+                    <input type="text" name="platform[theme_color]" id="theme-color" value="{{@root.data.platform.theme_color}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Platform Description</p>
+                </div>
+                <div class="col s12 m10">
+                    <textarea name="platform[about_description]" placeholder="Please enter your platform description" rows="10">{{@root.data.platform.about_description}}</textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Landing Page Images</p>
+                </div>
+                <div class="col s12 m8">
+                    <div class="file-input-btn" data-file-type="photo" data-file-count="5" data-input-name="platform[landing_page_slider]">
+                        <i class="material-icons">burst_mode</i>
+                        <p>Insert Photos</p>
+                        {{#each @root.data.platform.landing_page_slider}}
+                            <input type="hidden" name="platform[landing_page_slider][]" value="{{this}}">
+                        {{/each}}
+                    </div>
+                </div>
+                {{#if @root.data.platform.landing_page_slider}}
+                    <div class="thumbnail-container">
+                        {{#each @root.data.platform.landing_page_slider}}
+                            <img src="/cms/media/{{this}}" alt="{{@index}}" class="thumbnail">
+                        {{/each}}
+                    </div>
+                {{/if}}
+                {{> cms/components/pop-up-button message="For landing page slider, the size of the photo must be of dimension 1280x720" icon="help"}}
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>About Us Image</p>
+                </div>
+                <div class="col s12 m8">
+                    <div class="file-input-btn" data-file-type="photo" data-file-count="1" data-input-name="platform[about_image]">
+                        <i class="material-icons">insert_photo</i>
+                        <p>Insert Photo</p>
+                        <input type="hidden" name="platform[about_image][]" value="{{#if @root.data.platform.about_image}}{{ @root.data.platform.about_image}}{{/if}}">
+                    </div>
+                </div>
+                {{#if @root.data.platform.about_image}}
+                    <div class="thumbnail-container">
+                        <img src="/cms/media/{{@root.data.platform.about_image}}" alt="about-image" class="thumbnail">
+                    </div>
+                {{/if}}
+                {{> cms/components/pop-up-button message="For about us image, the optimal size of the photo is 1280x720." icon="help"}}
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Platform Logo</p>
+                </div>
+                <div class="col s12 m8">
+                    <div class="file-input-btn" data-file-type="logo" data-file-count="1" data-input-name="platform[logo]">
+                        <i class="material-icons">insert_photo</i>
+                        <p>Insert Photo</p>
+                        <input type="hidden" name="platform[logo][]" value="{{#if @root.data.platform.logo}}{{@root.data.platform.logo}}{{/if}}">
+                    </div>
+                </div>
+                {{#if @root.data.platform.logo}}
+                    <div class="thumbnail-container">
+                        <img src="/cms/media/{{@root.data.platform.logo}}" alt="logo" class="thumbnail">
+                    </div>
+                {{/if}}
+                {{> cms/components/pop-up-button message="For logo image, the optimal size of the photo is at least 50x50, however logo will automatically be fitted." icon="help"}}
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p>Platform Property Listing Details</p>
+                </div>
+                <div class="col s12">
+                    <input type="text" name="platform[properties_listing_section][header]" id="listing-header" value="{{@root.data.platform.properties_listing_section.header}}">
+                    <label for="listing-header">Header</label>
+                </div>
+                <div class="col s12">
+                    <input type="text" name="platform[properties_listing_section][header_sub]" id="listing-header-sub" value="{{@root.data.platform.properties_listing_section.header_sub}}">
+                    <label for="listing-header-sub">Header Subtitle</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Footer Slider</p>
+                </div>
+                <div class="col s12 m5">
+                    <input type="text" name="platform[footer_slider][header]" id="footer-slider-header" value="{{@root.data.platform.footer_slider.header}}">
+                </div>
+                <div class="col s12 m5">
+                    <div class="file-input-btn" data-file-type="photo" data-file-count="infinity" data-input-name="platform[footer_slider][slides]">
+                        <i class="material-icons">burst_mode</i>
+                        <p>Insert Photos</p>
+                        {{#each @root.data.platform.footer_slider.slides}}
+                            <input type="hidden" name="platform[footer_slider][slides][]" value="{{this}}">
+                        {{/each}}
+                    </div>
+                </div>
+                {{#if @root.data.platform.footer_slider.slides}}
+                    <div class="thumbnail-container">
+                        {{#each @root.data.platform.footer_slider.slides}}
+                            <img src="/cms/media/{{this}}" alt="{{@index}}" class="thumbnail">
+                        {{/each}}
+                    </div>
+                {{/if}}
+                {{> cms/components/pop-up-button message="For footer slider, the optimal size of the photo must be of dimension 512x512" icon="help"}}
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Contact Number</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="platform[contact_mobile]" placeholder="Please enter your contact number" type="text" value="{{@root.data.platform.contact_mobile}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Contact Email</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="platform[contact_email]" placeholder="Please enter your contact email" type="text" value="{{@root.data.platform.contact_email}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m2">
+                    <p>Business Address</p>
+                </div>
+                <div class="col s12 m10">
+                    <input class="validate" name="platform[business_address]" placeholder="Please enter your business address" type="text" value="{{@root.data.platform.business_address}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p>Business Hours</p>
+                </div>
+                {{#times 3}}
+                    <div class="col s12 m6 input-field">
+                        <input type="text" name="platform[business_hours][{{this}}][days]" id="days{{this}}" value="{{#with (lookup @root.data.platform.business_hours this)}}{{days}}{{/with}}">
+                        <label for="days{{this}}">Days Column {{add this 1}}</label>
+                    </div>
+                    <div class="col s12 m6 input-field">
+                        <input type="text" name="platform[business_hours][{{this}}][time]" id="time{{this}}" value="{{#with (lookup @root.data.platform.business_hours this)}}{{time}}{{/with}}">
+                        <label for="time{{this}}">Time Column {{add this 1}}</label>
+                    </div>
+                {{/times}}
+            </div>
+            <div class="row">
+                <div class="col s12">
+                    <p class="emboldened">Links</p>
+                    {{#times 10}}
+                        <div class="row">
+                            <div class="col s4 input-field">
+                                <input type="text" name="platform[useful_links][{{this}}][link_label]" class="validate" id="link-label{{this}}" value="{{#with (lookup @root.data.platform.useful_links this)}}{{link_label}}{{/with}}">
+                                <label for="link-label{{this}}">Link name</label>
+                            </div>
+                            <div class="col s8 input-field">
+                                <input type="text" name="platform[useful_links][{{this}}][link_url]" class="validate" id="link-url{{this}}" value="{{#with (lookup @root.data.platform.useful_links this)}}{{link_url}}{{/with}}">
+                                <label for="link-url{{this}}">Link URL</label>
+                            </div>
+                        </div>
+                    {{/times}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s10 m3 offset-s1">
+                    <button type="submit" class="btn-large main-color full-width">Save Changes</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{{> cms/popup}}
+{{> cms/gallery-modal}}

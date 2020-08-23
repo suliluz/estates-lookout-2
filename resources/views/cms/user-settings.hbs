@@ -1,0 +1,65 @@
+<section class="section" id="profile">
+    <div class="container">
+        <div class="row">
+            <h3 class="center-align">Profile</h3>
+            <div class="col s10 m6 offset-s1 offset-m3">
+                <div class="block center-align">
+                    {{#if @root.data.user.profile_photo}}
+                        <img src="/cms/media/{{@root.data.user.profile_photo}}" alt="profile" class="responsive-img circle img-15x15">
+                    {{else}}
+                        <i class="material-icons circle large">person</i>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+        <div class="row valign-wrapper">
+            <div class="col s5 m2 offset-m2">
+                <p class="emboldened">Name</p>
+            </div>
+            <div class="col s7 m8">
+                <p>{{@root.data.user.first_name}} {{@root.data.user.last_name}}</p>
+            </div>
+        </div>
+        <div class="row valign-wrapper">
+            <div class="col s5 m2 offset-m2">
+                <p class="emboldened">Username</p>
+            </div>
+            <div class="col s7 m8">
+                <p>{{@root.data.user.username}}</p>
+            </div>
+        </div>
+        <div class="row valign-wrapper">
+            <div class="col s5 m2 offset-m2">
+                <p class="emboldened">Email address</p>
+            </div>
+            <div class="col s7 m8">
+                <p>{{@root.data.user.email}}</p>
+            </div>
+        </div>
+        {{#if @root.data.user.ren_number}}
+            <div class="row valign-wrapper">
+                <div class="col s5 m2 offset-m2">
+                    <p class="emboldened">REN Number</p>
+                </div>
+                <div class="col s7 m8">
+                    <p>{{@root.data.user.ren_number}}</p>
+                </div>
+            </div>
+        {{else}}
+            <div class="row valign-wrapper">
+                <div class="col s5 m2 offset-m2">
+                    <p class="default-size-paragraph emboldened">Company Number</p>
+                </div>
+                <div class="col s7 m8">
+                    <p>{{@root.data.user.company_number}}</p>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+    <div class="row valign-wrapper">
+        <div class="col s12 center-align">
+            <a href="/cms/user-settings/edit-user-settings" class="btn-large action-btn shift-right">Edit Profile</a>
+            <a href="/cms/user-settings/edit-user-password" class="btn-large action-btn">Edit Password</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,131 @@
+{{!--
+TODO CMS Listings Page
+1. Iterate over @root.data.projects
+2. Make modal for assign listing
+3. Make modal for unit status change
+--}}
+<section class="section" id="listings">
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m6 l4">
+                    <a href="/cms/listings/create/single-listing">
+                        <div class="card-panel hide-on-small-only create-listing-btn long-height valign-wrapper">
+                            <i class="material-icons">add</i>
+                        </div>
+                        <div class="card-panel create-listing-btn hide-on-med-and-up valign-wrapper">
+                            <i class="material-icons">add</i>
+                        </div>
+                    </a>
+                </div>
+                {{#each @root.data.projects}}
+                    <div class="col s12 m6 l4">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="/cms/media/{{this.slider_photos.[0]}}" alt="{{this.qualifiedName}}">
+                            </div>
+                            <div class="card-content">
+                                <div class="row">
+                                    <p class="card-title">{{this.name}}</p>
+                                </div>
+                                <div class="specifics-container">
+                                    <div class="row">
+                                        <div class="col s12 m6">
+                                            <p class="main-color-text">Property Type:</p>
+                                        </div>
+                                        <div class="col s12 m6">
+                                            <p>{{this.property_type}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="specifics-container">
+                                    <div class="row">
+                                        <div class="col s12 m6">
+                                            <p class="main-color-text">Created By:</p>
+                                        </div>
+                                        <div class="col s12 m6">
+                                            <p>{{this.distributor.first_name}} {{this.distributor.last_name}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col s12">
+                                        <a href="/cms/listings/edit/{{this._id}}" class="btn action-btn full-width main-color-text">Edit Project</a>
+                                    </div>
+                                    <div class="col s12">
+                                        <a href="/cms/listings/delete/{{this._id}}" class="btn action-btn full-width main-color-text">Delete entire project</a>
+                                    </div>
+                                    {{#if this.extendedAssignable}}
+                                        <div class="col s12">
+                                            <a href="javascript:void(0)" class="assign-agent-btn btn action-btn full-width main-color-text" data-project-id="{{this._id}}">Assign Agent</a>
+                                        </div>
+                                    {{/if}}
+                                    {{#if (equals this.creation_type "detailed-creation")}}
+                                        <div class="col s12">
+                                            <a href="javascript:void(0)" class="unit-status-change-btn btn action-btn full-width main-color-text" data-project-id="{{this._id}}">Change Unit Status</a>
+                                        </div>
+                                    {{/if}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+    {{#> cms/components/modal modalId="assign-agent-modal"}}
+        <h4 class="center-align page-title">Assign agents</h4>
+        <div class="row">
+            <form action="/cms/listings/assign-to-agent" method="post">
+                <div class="col s7 offset-s1 input-field">
+                    <label for="fqdn">Enter agent URL</label>
+                    <input type="hidden" name="projectId" id="assign-project-id">
+                    <input type="text" name="fqdn" id="fqdn">
+                </div>
+                <div class="col s4">
+                    <input type="submit" class="btn action-btn" value="Add User">
+                </div>
+            </form>
+            <div class="col s12">
+                <div id="assigned-users"></div>
+            </div>
+        </div>
+    {{/ cms/components/modal}}
+</section>
+{{#> cms/components/modal modalId="unassign-agent-modal" modalStyle="width: 50%;"}}
+    <p>Are you sure you want to unassign <span id="agent-name-unassign-confirmation" class="emboldened"></span> from this listing?</p>
+    <form action="/cms/listings/unassign-agent" method="post">
+        <input type="hidden" name="platformId" id="platform-id-unassign-confirmation">
+        <div class="row">
+            <div class="col s4">
+                <input type="submit" value="Confirm" class="btn green">
+            </div>
+            <div class="col s4">
+                <a href="javascript:void(0)" class="modal-close btn red">Cancel</a>
+            </div>
+        </div>
+    </form>
+{{/ cms/components/modal}}
+{{#> cms/components/modal modalId="unit-status-change" modalClass="full-screen"}}
+    <div id="unit-status-change-container"></div>
+{{/ cms/components/modal}}
+{{#> cms/components/modal modalId="unit-status-change-confirmation-modal" modalStyle="width: 50%"}}
+    <p>Change status for unit <span id="unit-status-change-confirmation-name"></span></p>
+    <form action="/cms/listings/change-unit-status" method="post">
+        <input type="hidden" name="projectId" id="unit-status-change-confirmation-project">
+        <input type="hidden" name="unitIndex" id="unit-status-change-confirmation-unit">
+        <input type="hidden" name="floorIndex" id="unit-status-change-confirmation-floor">
+        <input type="hidden" name="towerIndex" id="unit-status-change-confirmation-tower">
+        <div class="row">
+            <div class="col s4">
+                <button type="submit" class="btn-large green" name="unit_status" value="available">Available</button>
+            </div>
+            <div class="col s4">
+                <button type="submit" class="btn-large red" name="unit_status" value="sold">Sold</button>
+            </div>
+            <div class="col s4">
+                <button type="submit" class="btn-large purple" name="unit_status" value="reserved">Reserved</button>
+            </div>
+        </div>
+    </form>
+{{/ cms/components/modal}}

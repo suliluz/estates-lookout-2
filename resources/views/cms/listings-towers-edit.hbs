@@ -1,0 +1,57 @@
+<section id="create-listing">
+    <div class="container">
+        <div class="row">
+            <div class="col m3"><p>Currently Editing:</p></div>
+            <div class="col m4">
+                <select id="tower-select">
+                    {{#if @root.data.project.towers}}
+                        {{#each @root.data.project.towers}}
+                        <option value="/cms/listings/modify/{{@root.data.project._id}}/tower/{{@index}}" {{#if (equals @root.data.towerIndex @index)}}selected{{/if}}>{{this.tower_name}}</option>
+                        {{/each}}
+                        {{#if (not @root.data.tower)}}
+                            <option value="/cms/listings/modify/{{@root.data.project._id}}/tower/{{@root.data.towerIndex}}" selected>New Tower</option>
+                        {{/if}}
+                    {{else}}
+                        <option value="/cms/listings/modify/{{@root.data.project._id}}/tower/{{@root.data.towerIndex}}" selected>New Tower</option>
+                    {{/if}}
+                </select>
+            </div>
+            {{#if @root.data.tower}}
+                <div class="col m5">
+                    <button id="add-tower" class="btn action-btn">Add tower</button>
+                    <form action="/cms/listings/delete-tower" method="post">
+                        <input type="hidden" name="projectId" value="{{@root.data.project._id}}">
+                        <input type="hidden" name="towerIndex" value="{{@root.data.towerIndex}}">
+                        <button type="submit" class="btn action-btn">Delete Tower</button>
+                    </form>
+                </div>
+            {{/if}}
+        </div>
+        <form action="/cms/listings/edit-tower" method="post">
+            <input type="hidden" name="projectId" value="{{@root.data.project._id}}">
+            <input type="hidden" name="towerIndex" value="{{@root.data.towerIndex}}">
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Tower Name:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="tower[name]" id="name" placeholder="Tower name" value="{{@root.data.tower.tower_name}}">
+                </div>
+            </div>
+            <div class="row marginalize-vertical">
+                <div class="col s12 m4">
+                    <p>Number of Floors:</p>
+                </div>
+                <div class="col s12 m8">
+                    <input type="text" name="tower[floor_count]" id="floor_count" placeholder="Number of floors" value="{{@root.data.tower.floor_count}}">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 marginalize-vertical">
+                    <button type="submit" name="submit" value="save" class="btn-large green"><i class="material-icons left">check</i>Save</button>
+                    <button type="submit" name="submit" value="next" class="btn-large red"><i class="material-icons right">keyboard_arrow_right</i>Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

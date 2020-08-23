@@ -1,0 +1,69 @@
+{{#if (equals framework "bootstrap")}}
+    {{#if (equals @root.flash.type "success")}}
+        let message = `<div class="alert alert-success alert-dismissible fade show" role="alert" id="flash">
+                            <h4 class="alert-heading">Success</h4>
+                            {{#each @root.flash.message}}
+                                <p>{{this}}</p>
+                            {{/each}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>`;
+
+        $(body).append(message);
+        $("#flash").show();
+    {{/if}}
+    {{#if (equals @root.flash.type "error")}}
+            let message = `<div class="alert alert-danger alert-dismissible fade show" role="alert" id="flash">
+                <h4 class="alert-heading">Error</h4>
+                {{#each @root.flash.message}}
+                    <p>{{this}}</p>
+                {{/each}}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close" id="flash">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>`;
+
+            $(body).append(message);
+            $("#flash").show();
+    {{/if}}
+    {{#if (equals @root.flash.type "warning")}}
+        let message = `<div class="alert alert-warning alert-dismissible fade show" role="alert" id="flash">
+                            <h4 class="alert-heading">Warning</h4>
+                            {{#each @root.flash.message}}
+                                <p>{{this}}</p>
+                            {{/each}}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>`;
+
+        $(body).append(message);
+        $("#flash").show();
+    {{/if}}
+{{else}}
+    {{#if (equals @root.flash.type "success")}}
+        let flash = `<p><i class="material-icons">check</i> <b>Success! </b></p>
+                    {{#each @root.flash.message}}
+                        <p>{{this}}</p>
+                    {{/each}}`;
+
+        M.Toast({html: flash, classes: "green white-text"});
+    {{/if}}
+    {{#if (equals @root.flash.type "error")}}
+        let flash = `<p><i class="material-icons">priority_high</i> <b>Error! </b></p>
+        {{#each @root.flash.message}}
+            <p>{{this}}</p>
+        {{/each}}`;
+
+        M.Toast({html: flash, classes: "red white-text"});
+    {{/if}}
+    {{#if (equals @root.flash.type "warning")}}
+        let flash = `<p><i class="material-icons">warning</i> <b>Warning! </b></p>
+        {{#each @root.flash.message}}
+            <p>{{this}}</p>
+        {{/each}}`;
+
+        M.Toast({html: flash, classes: "yellow white-text"});
+    {{/if}}
+{{/if}}

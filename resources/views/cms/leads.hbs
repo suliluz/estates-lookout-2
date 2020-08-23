@@ -1,0 +1,58 @@
+<section class="section" id="leads">
+    <div class="container">
+        <ul class="collapsible" id="lead-collapsible">
+            {{#each @root.data.leads}}
+                <li data-is-read="{{#if this.read}}yes{{else}}no{{/if}}" data-lead-id="{{this._id}}">
+                    <div class="collapsible-header valign-wrapper">
+                        <p class="emboldened lead-topic">{{this.topic}}</p>
+                        {{#if (not this.read)}}<p class="lead-status green-text">UNREAD</p>{{/if}}
+                        <p class="lead-createdAt">{{moment_format this.createdAt "DD/MM/YY"}}</p>
+                        <span class="lead-dropdownArrow"><i class="material-icons">arrow_drop_down</i></span>
+                    </div>
+                    <div class="collapsible-body">
+                        <div class="row">
+                            <div class="col m4">
+                                <p>Name:</p>
+                            </div>
+                            <div class="col m8">
+                                <p>{{this.full_name}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m4">
+                                <p>Contact Email:</p>
+                            </div>
+                            <div class="col m8">
+                                <p>{{this.email}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m4">
+                                <p>Contact Number:</p>
+                            </div>
+                            <div class="col m8">
+                                <p>{{this.phone}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m4">
+                                <p>Interested In:</p>
+                            </div>
+                            <div class="col m8">
+                                <p>{{this.topic}}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col m12">
+                                <p>Description:</p>
+                            </div>
+                            <div class="col m12">
+                                <p>{{this.description}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    </div>
+</section>

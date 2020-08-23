@@ -1,0 +1,135 @@
+<section id="welcome-screen-slider" class="slider">
+    <ul class="slides">
+        {{#each @root.platform.landing_page_slider}}
+            <li>
+                <img src="/media/{{this}}" alt="{{@index}}">
+            </li>
+        {{/each}}
+    </ul>
+</section>
+<div class="search-header main-color">SEARCH FOR YOUR HOME</div>
+<section id="search-area" class="row">
+    <div class="col s12">
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <form action="/search" method="get">
+                        <div class="row">
+                            <div class="input-field col s12 m4 l3">
+                                <select name="city" id="city">
+                                    <option value="all" selected>All cities</option>
+                                    {{#each @root.data.search.cities}}
+                                        <option value="{{this}}">{{this}}</option>
+                                    {{/each}}
+                                </select>
+                                <label for="City">City</label>
+                            </div>
+                            <div class="input-field col s12 m4 l3">
+                                <select name="property_type" id="property-type">
+                                    <option value="all" selected>All Types</option>
+                                    {{#each @root.data.search.property_types}}
+                                        <option value="{{this}}">{{this}}</option>
+                                    {{/each}}
+                                </select>
+                                <label for="property-type">Property Type</label>
+                            </div>
+                            <div class="input-field col s12 m4 l3">
+                                <input type="number" name="number_of_bedrooms" id="bedrooms" min="{{@root.data.bedrooms.min}}" max="{{@root.data.bedrooms.max}}">
+                                <label for="bedrooms">Number of bedrooms</label>
+                            </div>
+                            <div class="input-field col s12 m4 l3">
+                                <input type="number" name="number_of_bathrooms" id="bathrooms" min="{{@root.data.bathrooms.min}}" max="{{@root.data.bathrooms.max}}">
+                                <label for="bathrooms">Number of bathrooms</label>
+                            </div>
+                            <div class="input-field col s12">
+                                <p class="center-align">
+                                    <input type="submit" class="btn btn-large right-align main-color" value="Submit">
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="properties-view">
+    <div class="container">
+        <h3 class="section-header">{{platform.properties_listing_section.header}}</h3>
+        <h4 class="section-description center-align main-color-text">{{platform.properties_listing_section.header_sub}}</h4>
+        <div class="linear-spacing"></div>
+        <div class="row">
+            {{#each @root.data.listings}}
+                <div class="col s12 m6 l4">
+                    <a href="/view-property/{{this.qualifiedName}}" class="black-text">
+                        <div class="card property-card">
+                            <div class="card-image">
+                                <img src="/media/{{this.slider_photos.[0]}}" alt="{{this.qualifiedName}}">
+                                <span class="card-purchase-type main-color">For Sale</span>
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title">{{this.name}}</span>
+                                <span class="valign-wrapper address main-color-text"><i class="material-icons">location_on</i>{{this.street_address}}</span>
+                                <span class="property-description truncate">{{this.description}}</span>
+                                <div class="row">
+                                    <span class="card-price main-color-text">{{this.metadata.price}}</span>
+                                </div>
+                                <div class="row">
+                                    <div class="col s4">
+                                    <span class="property-detail-pill valign-wrapper">
+                                        <i class="material-icons main-color-text">hotel</i>
+                                        <span class="count">{{makeRangeOrSingle this.metadata.bedrooms.min this.metadata.bedrooms.max}}</span>
+                                    </span>
+                                    </div>
+                                    <div class="col s4">
+                                    <span class="property-detail-pill valign-wrapper">
+                                        <i class="material-icons main-color-text">bathtub</i>
+                                        <span class="count">{{makeRangeOrSingle this.metadata.bathrooms.min this.metadata.bathrooms.max}}</span>
+                                    </span>
+                                    </div>
+                                    <div class="col s4">
+                                        <div class="property-detail-pill valign-wrapper">
+                                            <i class="material-icons main-color-text">directions_car</i>
+                                            <span class="count">{{makeRangeOrSingle this.metadata.parkings.min this.metadata.parkings.max}}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col s11 offset-s1">
+                                        <div class="property-detail-pill valign-wrapper shift-top">
+                                            <i class="material-icons main-color-text">square_foot</i>
+                                            <span class="count">{{makeRangeOrSingle this.metadata.sqft.min this.metadata.sqft.max}} sqft</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {{/each}}
+        </div>
+    </div>
+</section>
+<section id="about-us">
+    <div class="row">
+        <div class="col s12 m12 l6">
+            <div class="container">
+                <span class="entity-type main-color-text"><i class="material-icons">people</i></span>
+                <h2 class="entity-name">{{@root.platform.owner.first_name}} {{@root.platform.owner.last_name}}</h2>
+                <p class="entity-title main-color-text">{{capitalize @root.platform.owner_type}}</p>
+                <div class="about-us-content">
+                    {{@root.platform.about_us_description}}
+                </div>
+                <div class="entity-mobile valign-wrapper">
+                    <i class="material-icons main-color-text">call</i>
+                    <span>{{@root.platform.contact_mobile}}</span>
+                </div>
+                <div class="entity-mail valign-wrapper">
+                    <i class="material-icons main-color-text">email</i>
+                    <span>{{@root.platform.contact_email}}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m12 l6">
+            <img src="/media/{{@root.platform.about_image}}" class="responsive-img" alt="">
+        </div>
+    </div>
+</section>

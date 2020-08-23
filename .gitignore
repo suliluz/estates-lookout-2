@@ -1,0 +1,5 @@
+/.env
+/node_modules/
+/resources/uploads/
+resources/reports/
+/.idea

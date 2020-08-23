@@ -1,0 +1,45 @@
+<section id="create-listing">
+    <div class="container">
+<!--        <div class="row">-->
+<!--            <div class="col m3">Currently Editing:</div>-->
+<!--            <div class="col m4">-->
+<!--                <select id="tower-select">-->
+<!--                    {{#if @root.data.project.towers}}-->
+<!--                        {{#each @root.data.project.towers}}-->
+<!--                            <option value="/cms/listings/modify/{{@root.data.project._id}}/tower/{{@index}}">{{this.tower_name}}</option>-->
+<!--                        {{/each}}-->
+<!--                    {{else}}-->
+<!--                        <option value="/cms/listings/modify/{{@root.data.project_id}}/tower/0">Tower 1</option>-->
+<!--                    {{/if}}-->
+<!--                </select>-->
+<!--            </div>-->
+<!--        </div>-->
+        <form action="/cms/listings/edit-floors" method="post">
+            <input type="hidden" name="projectId" value="{{@root.data.project._id}}">
+            <input type="hidden" name="towerIndex" value="{{@root.data.towerIndex}}">
+            {{#each @root.data.floors}}
+                <div class="row marginalize-vertical">
+                    <div class="col s12 m4">
+                        <p>Floor {{add @index 1}} Name:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="text" name="floor[{{@index}}][floor_name]" id="floor-{{@index}}-name" placeholder="Floor {{add @index 1}} name" value="{{this.floor_name}}">
+                    </div>
+                    <div class="col s12 m4">
+                        <p>Floor {{add @index 1}} Number of Units:</p>
+                    </div>
+                    <div class="col s12 m8">
+                        <input type="number" name="floor[{{@index}}][units_count]" id="floor-{{@index}}-count" value="{{this.units_count}}" placeholder="Floor {{add @index 1}} number of units">
+                    </div>
+                </div>
+                <div class="divider"></div>
+            {{/each}}
+            <div class="row">
+                <div class="col s12 marginalize-vertical">
+                    <button type="submit" name="submit" value="save" class="btn-large green"><i class="material-icons left">check</i>Save</button>
+                    <button type="submit" name="submit" value="next" class="btn-large red"><i class="material-icons right">keyboard_arrow_right</i>Next</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

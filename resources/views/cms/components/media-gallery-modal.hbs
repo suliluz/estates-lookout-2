@@ -1,0 +1,23 @@
+<div class="row">
+    {{#each @root.data.medias}}
+        <div class="col l2 m3 s12">
+            <div class="gallery-media-select" onclick="selectMedia(this)" data-media-id="{{this._id}}">
+                <div class="delete-confirmation-btn" onclick="deleteMedia(this)" data-media-id="{{this._id}}" data-media-name="{{this.displayName}}"><span>-</span></div>
+                {{#if (equals this.fileType "image")}}
+                    <img src="/cms/media/{{this._id}}" alt="{{this.displayName}}" style="height: auto; width: 100%">
+                    <p class="center-align">{{this.displayName}}</p>
+                {{else if (equals this.fileType "video")}}
+                    <video class="responsive-video">
+                        <source src="/cms/video/{{this._id}}" type="video/{{this.extension}}">
+                    </video>
+                    <p class="center-align">{{this.displayName}}</p>
+                {{else}}
+                    <div class="document-box">
+                        <i class="material-icons">insert_drive</i>
+                        <p>{{this.displayName}}</p>
+                    </div>
+                {{/if}}
+            </div>
+        </div>
+    {{/each}}
+</div>

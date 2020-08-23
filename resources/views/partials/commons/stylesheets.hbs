@@ -1,0 +1,12 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.css">
+{{#if @root.extras.css}}
+    {{#each @root.extras.css}}<link rel="stylesheet" href="{{this}}">{{/each}}
+{{/if}}
+{{#if @root.extras.textcss}}
+    <style>
+        {{{@root.extras.textcss}}}
+    </style>
+{{/if}}
+{{> @partial-block}}

@@ -1,0 +1,159 @@
+<div class="container">
+    <div class="row">
+        <div class="col s12 m3">
+            <p class="default-size-paragraph">Currently editing</p>
+        </div>
+        <div class="col s6 m4">
+            <select id="floor-selection" data-project-id="{{@root.data.project._id}}" data-tower-index="{{@root.data.towerIndex}}">
+                {{#each @root.data.tower.floors}}
+                    <option value="{{@index}}" {{#if (equals this.floorIndex @index)}}selected{{/if}}>Floor {{#if this.floor_name}}{{this.floor_name}}{{else}}{{add @index 1}}{{/if}}</option>
+                {{/each}}
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="row">
+            <div class="col s2">
+                <p class="default-size-paragraph emboldened">Units</p>
+            </div>
+            <div class="col s10">
+                <ul class="tabs">
+                    {{#times @root.data.floor.units_count}}
+                        <li class="tab col s1">
+                            <a {{#if (equals 0 @index)}}class="active"{{/if}} href="#unit{{add this 1}}">{{add this 1}}</a>
+                        </li>
+                    {{/times}}
+                </ul>
+            </div>
+        </div>
+        <form action="/cms/listings/edit-units" method="post">
+            <input type="hidden" name="projectId" value="{{@root.data.project._id}}">
+            <input type="hidden" name="floorIndex" value="{{@root.data.floorIndex}}">
+            <input type="hidden" name="towerIndex" value="{{@root.data.towerIndex}}">
+            {{#times @root.data.floor.units_count}}
+                <div id="unit{{add this 1}}">
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Name:</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <input type="text" name="unit[{{this}}][name]" id="unit-{{this}}-name" placeholder="Unit name" value="{{#with (lookup @root.data.units this)}}{{name}}{{/with}}">
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Description:</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <textarea name="unit[{{this}}][description]" id="unit-{{this}}-description">{{#with (lookup @root.data.units this)}}{{description}}{{/with}}</textarea>
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Additional Information:</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <textarea name="unit[{{this}}][additional_info]" id="unit-{{this}}-additional-info">{{#with (lookup @root.data.units this)}}{{additional_info}}{{/with}}</textarea>
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Type:</p>
+                        </div>
+                        <div class="col s12 m8 input-field">
+                            <input type="text" id="unit_type{{this}}" class="autocomplete-unit-type" name="unit[{{this}}][unit_type]" value="{{#with (lookup @root.data.units this)}}{{unit_type}}{{/with}}">
+                            <label for="unit_type{{this}}">Unit {{add this 1}} Type</label>
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Images:</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <div class="file-input-btn" data-file-type="photo" data-file-count="infinity" data-input-name="unit[{{this}}][photos]">
+                                <i class="material-icons">burst_mode</i>
+                                <p>Insert Photos</p>
+                                {{#with (lookup @root.data.units this)}}
+                                    {{#each photos}}
+                                        <input type="hidden" name="photos[]" value="{{this}}">
+                                    {{/each}}
+                                {{/with}}
+                            </div>
+                            {{#with (lookup @root.data.units this)}}
+                                <div class="thumbnail-container">
+                                    {{#each photos}}
+                                        <img src="/cms/media/{{this}}" alt="{{@index}}" class="thumbnail">
+                                    {{/each}}
+                                </div>
+                            {{/with}}
+                            {{> cms/components/pop-up-button message="For unit gallery slider, the size of the photo must be of dimension 1280x720" icon="help"}}
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Bathrooms</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <input type="number" name="unit[{{this}}][bathrooms]" id="unit-{{this}}-bathrooms" placeholder="Number of bathrooms" value="{{#with (lookup @root.data.units this)}}{{bathrooms}}{{/with}}">
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Bedrooms</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <input type="number" name="unit[{{this}}][bedrooms]" id="unit-{{this}}-bedrooms" placeholder="Number of bedrooms" value="{{#with (lookup @root.data.units this)}}{{bedrooms}}{{/with}}">
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Parkings</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <input type="number" name="unit[{{this}}][parkings]" id="unit-{{this}}-parkings" placeholder="Number of parkings" value="{{#with (lookup @root.data.units this)}}{{parkings}}{{/with}}">
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Sqft</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <input type="text" name="unit[{{this}}][sqft]" id="unit-{{this}}-sqft" placeholder="Square feet area" value="{{#with (lookup @root.data.units this)}}{{sqft}}{{/with}}">
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Price</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <input type="text" name="unit[{{this}}][price]" id="unit-{{this}}-price" placeholder="Price" value="{{#with (lookup @root.data.units this)}}{{price}}{{/with}}">
+                        </div>
+                    </div>
+                    <div class="row marginalize-vertical">
+                        <div class="col s12 m4">
+                            <p>Unit {{add this 1}} Status</p>
+                        </div>
+                        <div class="col s12 m8">
+                            <select name="unit[{{this}}][status]" id="unit-{{this}}-status">
+                                {{#with (lookup @root.data.units this)}}
+                                    <option value="available" {{#if (equals "available")}}selected{{/if}}>Available</option>
+                                    <option value="sold" {{#if (equals "sold")}}selected{{/if}}>Sold</option>
+                                    <option value="reserved" {{#if (equals "reserved")}}selected{{/if}}>Reserved</option>
+                                {{else}}
+                                    <option value="available" selected>Available</option>
+                                    <option value="sold">Sold</option>
+                                    <option value="reserved">Reserved</option>
+                                {{/with}}
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            {{/times}}
+            <div class="col s12 marginalize-vertical">
+                <button type="submit" name="submit" value="save" class="btn-large green"><i class="material-icons left">check</i>Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+{{> cms/popup}}
+{{> cms/gallery-modal}}

@@ -1,0 +1,245 @@
+html {
+  scroll-behavior: smooth; }
+
+body {
+  font-size: 62.5%; }
+
+.main-color {
+  background: #006aff; }
+  .main-color-text {
+    color: #006aff; }
+
+.full-width {
+  width: 100%; }
+
+.marginalize {
+  margin: 1rem; }
+
+.header-size-sub {
+  font-size: 1.2rem; }
+
+#property-description p {
+  font-size: 1rem; }
+
+#welcome-screen-slider {
+  height: 30rem !important;
+  margin-bottom: 1.5rem; }
+  #welcome-screen-slider > ul.indicators {
+    z-index: 2 !important;
+    left: 3rem; }
+    #welcome-screen-slider > ul.indicators > li {
+      display: block;
+      border-radius: 0;
+      width: 1rem;
+      height: 1rem;
+      background: #006aff; }
+      #welcome-screen-slider > ul.indicators > li.active {
+        background: white; }
+      #welcome-screen-slider > ul.indicators > li:not(:last-child) {
+        margin-bottom: 1rem; }
+  #welcome-screen-slider > ul.slides {
+    height: 32rem !important; }
+
+.search-header {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -85%);
+  padding: 1rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: white;
+  font-weight: bold;
+  width: 17rem;
+  font-size: 1rem;
+  z-index: 2; }
+
+#properties-view {
+  margin-top: 2rem; }
+
+.section-header {
+  font-size: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.section-description {
+  font-size: 1.2rem; }
+
+.card-image {
+  position: relative; }
+
+.card-purchase-type {
+  position: absolute;
+  top: 1.5rem;
+  left: 0.5rem;
+  color: white !important;
+  font-size: 1rem;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.card-price {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 0.5rem;
+  background-color: #fff;
+  padding: 0.75rem;
+  font-weight: bold;
+  font-size: 1.5rem; }
+
+.card-title {
+  font-size: 1.5rem !important;
+  font-weight: bold; }
+
+.address {
+  font-size: 1rem; }
+
+.property-description {
+  margin: 1.5rem 0;
+  font-size: 1rem;
+  display: block;
+  color: grey; }
+
+.property-detail-pill .count {
+  font-size: 1rem; }
+
+.property-detail-pill i {
+  margin-right: 1rem; }
+
+.logo-about-us {
+  width: 15rem;
+  height: 10rem;
+  background: #000;
+  margin: 0 auto; }
+  .logo-about-us img {
+    height: 100%;
+    width: 100%; }
+
+.about-us-content {
+  text-align: justify;
+  font-size: 1rem;
+  margin: 3rem 0; }
+
+#about-us .container {
+  z-index: 2; }
+
+.full-width img {
+  position: absolute;
+  left: 50%;
+  min-width: 100% !important; }
+
+.property-name {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 1.75rem; }
+
+.property-owned {
+  font-size: 1.25rem; }
+
+.property-pricing {
+  font-size: 1rem; }
+
+.property-address {
+  margin: 1rem 0;
+  font-size: 1rem; }
+
+#image-gallery .carousel {
+  height: 35rem !important; }
+  #image-gallery .carousel .carousel-item {
+    width: 100%;
+    height: 100%; }
+
+#facts-features {
+  font-size: 1rem; }
+  #facts-features #photo-gallery .carousel.film-carousel {
+    width: 100%;
+    height: 15rem; }
+  #facts-features #photo-gallery .material-placeholder {
+    width: 200px;
+    height: 200px; }
+    #facts-features #photo-gallery .material-placeholder img {
+      width: 100%;
+      height: 100%; }
+
+.carousel .carousel-controller {
+  position: relative;
+  width: 100%;
+  height: 100%; }
+  .carousel .carousel-controller .prev, .carousel .carousel-controller .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); }
+    .carousel .carousel-controller .prev i, .carousel .carousel-controller .next i {
+      font-size: 2rem;
+      font-weight: bold; }
+  .carousel .carousel-controller .prev {
+    left: 1rem; }
+  .carousel .carousel-controller .next {
+    right: 1rem; }
+
+.unit {
+  width: 8rem;
+  height: 5rem;
+  font-size: 1rem;
+  text-align: center;
+  padding: 0; }
+
+footer .container > .row > .col {
+  margin-bottom: 2rem; }
+
+.footer-section-header {
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: white;
+  color: white;
+  text-decoration-thickness: 0.2rem;
+  margin-bottom: 2rem; }
+
+.footer-detail-pill:not(:last-child) {
+  margin-bottom: 2rem; }
+
+.footer-detail-pill * {
+  color: white; }
+
+.footer-detail-pill i {
+  margin-right: 1rem; }
+
+.footer-detail-pill .value {
+  font-size: 1rem; }
+
+.useful-link {
+  font-size: 1rem;
+  color: white;
+  display: block; }
+  .useful-link:not(:last-child) {
+    margin-bottom: 1rem; }
+
+.property-section-header {
+  font-size: 2rem;
+  font-weight: bold; }
+
+.tabs .tab a {
+  color: white;
+  background: #006aff; }
+
+/*Black color to the text*/
+.tabs .tab a:hover {
+  background: #006aff;
+  color: white !important;
+  font-weight: bold; }
+
+/*Text color on hover*/
+.tabs .tab a.active {
+  background: #006aff;
+  color: white;
+  font-weight: bold; }
+
+/*Background and text color when a tab is active*/
+.tabs .indicator {
+  background: #006aff; }
+
+/*Color of underline*/
+.tabs .tab a:focus, .tabs .tab a:focus.active {
+  background: #006aff; }

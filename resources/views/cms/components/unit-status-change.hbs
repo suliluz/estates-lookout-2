@@ -1,0 +1,28 @@
+<div class="owl-carousel owl-theme" id="tower">
+    {{#each @root.data.towers}}
+        <div class="item">
+            <p class="default-size-paragraph center-align emboldened">{{this.tower_name}}</p>
+            <div class="tower-container">
+                {{#each this.floors}}
+                    <div class="row">
+                        <div class="col s2 m1 l1"><p class="emboldened default-size-paragraph">{{#if this.floor_name}}{{this.floor_name}}{{else}}{{add this.floorIndex 1}}{{/if}}</div>
+                        <div class="col s10 m11 l11">
+                            <div class="tower-unit-container" data-floor-position="{{this.floorIndex}}" data-project-id="{{@root.data.project._id}}">
+                                {{#each this.units}}
+                                    <div class="unit {{#if (equals this.status "available")}}green{{else if (equals this.status "sold")}}red{{else}}purple{{/if}}"
+                                        data-unit-status="{{this.status}}"
+                                         data-unit-position="{{@index}}"
+                                         data-tower-position="{{@../../index}}"
+                                    >
+                                        <p>{{this.name}}</p>
+                                        <p>{{this.sqft}} sqft</p>
+                                    </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+                {{/each}}
+            </div>
+        </div>
+    {{/each}}
+</div>

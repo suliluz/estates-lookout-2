@@ -1,0 +1,404 @@
+body {
+  font-size: 62.5%; }
+
+.main-color {
+  background-image: #3f51b5; }
+  .main-color-text, .main-color-text * {
+    color: #3f51b5 !important; }
+  .main-color-outline {
+    border: 0.1rem solid #3f51b5; }
+  .main-color-svg {
+    filter: invert(52%) sepia(36%) saturate(7499%) hue-rotate(356deg) brightness(98%) contrast(100%); }
+  .main-color-darken-text-1 {
+    color: #e49d40 !important; }
+  .main-color-darken-text-2 {
+    color: #d3933f !important; }
+  .main-color-darken-text-3 {
+    color: #b97f32 !important; }
+  .main-color-darken-text-4 {
+    color: #a76a1c !important; }
+
+.emboldened {
+  font-weight: bold; }
+
+p {
+  font-size: 1rem; }
+
+.header-size-1 {
+  font-size: 1.5rem; }
+
+.header-size-2 {
+  font-size: 1.75rem; }
+
+.header-size-3 {
+  font-size: 2rem; }
+
+.header-size-4 {
+  font-size: 2.5rem; }
+
+.header-size-5 {
+  font-size: 3rem; }
+
+.page-title {
+  font-size: 2rem; }
+
+.page-section-title {
+  font-size: 1.75rem; }
+
+.shift-left {
+  margin-left: 2rem; }
+  .shift-left-large {
+    margin-left: 5rem; }
+
+.shift-right {
+  margin-right: 2rem; }
+  .shift-right-large {
+    margin-right: 5rem; }
+
+.shift-bottom {
+  margin-bottom: 2rem; }
+  .shift-bottom-large {
+    margin-bottom: 5rem; }
+
+.shift-top {
+  margin-top: 2rem; }
+  .shift-top-large {
+    margin-top: 5rem; }
+
+.narrow-container {
+  width: 95%;
+  margin: auto; }
+
+.clean {
+  background: none;
+  box-shadow: none; }
+
+.full-width {
+  width: 90%; }
+
+.full-height {
+  width: 90%; }
+
+.section-spacing {
+  margin: 5rem 0; }
+
+.bordered-box {
+  border: 0.1rem solid black;
+  padding: 1rem; }
+
+.default-size-paragraph, .default-size-paragraph * {
+  font-size: 1rem !important; }
+
+.default-size-span, .default-size-span * {
+  font-size: 0.75rem !important; }
+
+.fit {
+  width: 100%;
+  height: 100%; }
+
+#developer-search-area .btn, #developer-search-area .btn-large,
+#lead-area .btn, #lead-area .btn-large,
+#testimonials .btn, #testimonials .btn-large {
+  background: #3f51b5 !important;
+  color: white !important;
+  font-weight: bold; }
+
+.btn, .btn-large {
+  background: whitesmoke !important;
+  color: #3f51b5;
+  border: 0.15rem solid #3f51b5;
+  font-weight: bold; }
+
+.btn-floating {
+  background: #3f51b5 !important;
+  border: none; }
+
+.img-10x10 {
+  width: 10rem;
+  height: 10rem; }
+
+.img-15x15 {
+  width: 15rem;
+  height: 15rem; }
+
+.img-10x10 {
+  width: 10rem;
+  height: 10rem; }
+
+.img-6x6 {
+  width: 6rem;
+  height: 6rem; }
+
+.img-5x5 {
+  width: 5rem;
+  height: 5rem; }
+
+.img-3x3 {
+  width: 3rem;
+  height: 3rem; }
+
+.img-2x2 {
+  width: 2rem;
+  height: 2rem; }
+
+.img-1x1 {
+  width: 1rem;
+  height: 1rem; }
+
+.no-display {
+  display: none; }
+
+.scroll-x {
+  overflow-x: scroll; }
+
+.scroll-y {
+  overflow-y: scroll; }
+
+.block {
+  display: block; }
+
+.dark-glass-canvas:not(.parallax) {
+  position: absolute;
+  background: black;
+  width: 100%;
+  height: 100%;
+  opacity: 0.5; }
+
+.dark-glass-canvas.parallax {
+  filter: brightness(30%); }
+
+.carousel-controller {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  color: red;
+  z-index: 1;
+  margin: auto 0; }
+  .carousel-controller > .prev, .carousel-controller > .next {
+    position: absolute;
+    height: 100%;
+    background: #3f51b5;
+    opacity: 0.3;
+    cursor: pointer; }
+    .carousel-controller > .prev:hover, .carousel-controller > .next:hover {
+      opacity: 0.75;
+      transition: .5s ease; }
+  .carousel-controller > .prev {
+    left: 0; }
+  .carousel-controller > .next {
+    right: 0; }
+  .carousel-controller i {
+    font-size: 5rem; }
+
+.justify-align {
+  text-align: justify; }
+
+.block-center {
+  text-align: center; }
+  .block-center *:not(:last-child) {
+    margin-right: 1.5rem; }
+
+.section-header {
+  text-transform: uppercase;
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.75rem; }
+
+.section-description {
+  font-weight: bold;
+  font-size: 1.5rem; }
+
+.optimal-container {
+  width: 85%;
+  margin: auto; }
+
+.linear-spacing {
+  margin: 5rem 0; }
+
+.linear-inner-vertical {
+  padding: 2rem 0; }
+
+.linear-inner-horizontal {
+  padding: 0 2rem; }
+
+.linear-inner-all {
+  padding: 3rem 2rem; }
+
+.linear-inner-large {
+  padding: 7rem 0; }
+
+.clear-width {
+  width: 0 !important; }
+
+.modal.full-screen {
+  width: 100vw;
+  max-height: 100vh;
+  height: 100vh;
+  top: 0 !important; }
+
+.narrow-spacing-both {
+  margin: 1rem 0; }
+
+.narrow-spacing-top {
+  margin-top: 1rem; }
+
+.narrow-spacing-bottom {
+  margin-bottom: 1rem; }
+
+.narrow-spacing-horizontal {
+  margin: 0 1rem !important; }
+
+@media only screen and (max-width: 600px) {
+  .shift-top-on-mobile {
+    margin-top: 1rem; }
+  .shift-bottom-on-mobile {
+    margin-bottom: 1rem; }
+  .shift-left-on-mobile {
+    margin-left: 1rem; }
+  .shift-right-on-mobile {
+    margin-right: 1rem; }
+  .flexible-font-on-mobile, .flexible-font-on-mobile * {
+    font-size: 1rem; } }
+
+main, body, html {
+  height: 100%;
+  scroll-behavior: smooth; }
+
+.section-header {
+  color: #3f51b5; }
+
+.section-description {
+  color: #3f51b5; }
+
+#root-page-navbar {
+  padding: 0 2rem; }
+  #root-page-navbar .brand-logo {
+    width: 6rem;
+    margin-left: 0.2rem;
+    height: 100%; }
+    #root-page-navbar .brand-logo img {
+      height: 95%;
+      width: 100%;
+      margin-left: 1rem; }
+    #root-page-navbar .brand-logo:hover {
+      background: none; }
+
+#root-page-sidenav {
+  background-color: #3f51b5;
+  padding: 2rem 0;
+  width: 12rem; }
+  #root-page-sidenav li a {
+    color: white;
+    font-weight: bold; }
+
+#welcome-header {
+  background: url(../img/avantecture-0Vdrg5pR7NY-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  height: 100%;
+  width: 100%;
+  position: relative; }
+  #welcome-header .box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    min-width: 25rem;
+    min-height: 20rem;
+    color: white;
+    padding: 1.5rem;
+    z-index: 2; }
+    #welcome-header .box-header {
+      font-size: 3rem;
+      font-weight: bold; }
+
+#root-page-about-us {
+  padding: 10rem 0; }
+
+#root-page-dropdown {
+  width: 100% !important;
+  top: 65px !important;
+  left: 0 !important; }
+
+#benefits .box {
+  max-height: 32rem;
+  color: #3c3b3d;
+  text-align: justify; }
+  #benefits .box img {
+    width: 3rem;
+    height: 3rem; }
+
+#features .carousel {
+  height: 35rem !important;
+  width: 100%; }
+  #features .carousel .carousel-controller {
+    position: relative;
+    height: 28rem;
+    width: 100%; }
+  #features .carousel .carousel-item {
+    height: auto;
+    width: 100%; }
+    #features .carousel .carousel-item img {
+      width: 100%;
+      height: 28rem; }
+  #features .carousel .indicators > .indicator-item {
+    background: #3f51b5;
+    width: 1rem;
+    height: 1rem; }
+    #features .carousel .indicators > .indicator-item.active {
+      background: #3f51b5; }
+
+#testimonials .col.s1 > .slider-button {
+  margin-top: 10rem; }
+
+#testimonials label {
+  color: white; }
+
+#testimonials input, #testimonials textarea {
+  color: white; }
+  #testimonials input:focus, #testimonials textarea:focus {
+    border-bottom: 1px solid currentColor; }
+
+#testimonials .owl-carousel .testimonial-header {
+  font-size: 1.5rem;
+  text-align: center;
+  font-weight: bold; }
+
+#testimonials .owl-carousel .testimonial-description {
+  font-size: 1rem;
+  color: grey; }
+
+#testimonials .owl-carousel .testimonial-profile {
+  text-align: center;
+  height: 10rem; }
+  #testimonials .owl-carousel .testimonial-profile img {
+    width: 5rem;
+    height: 5rem;
+    margin: 0 auto; }
+  #testimonials .owl-carousel .testimonial-profile p {
+    font-weight: bold;
+    font-size: 1rem; }
+
+#pricing .card {
+  min-height: 50rem; }
+
+#pricing .feature-list {
+  font-size: 1rem; }
+  #pricing .feature-list li {
+    text-align: center; }
+
+#advantage {
+  position: relative;
+  height: 20rem;
+  background: url(../img/gallery/aaron-huber-G7sE2S4Lab4-unsplash.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  color: white; }
+  #advantage .container {
+    z-index: 2; }
+
+.carousel .indicators {
+  bottom: -10px; }

@@ -1,0 +1,813 @@
+{{!--
+TODO CMS Layout
+1. Work on sorting function for listing page
+2. Make ajax call on unit status change button click for listing page
+--}}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{@root.data.pageTitle}} | Estates Lookout</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Dogfalo/materialize@master/extras/noUiSlider/nouislider.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/css/cms.css">
+    <style>
+        {{#if @root.extras.textcss}}
+            {{{@root.extras.textcss}}}
+        {{/if}}
+    </style>
+    <script src="/js/tinymce/tinymce.min.js" referrerpolicy="origin"></script>
+</head>
+<body class="grey lighten-4">
+    <header>
+        <div class="navbar-fixed">
+            <nav id="cms-navbar" class="white main-color-text">
+                <div class="nav-wrapper">
+                    <a href="/cms/listings" class="brand-logo left">
+                        <img src="/img/logo/logo-colored.png" alt="logo">
+                    </a>
+                    <ul id="large-navbar-navigation" class="hide-on-med-and-down show-on-large-only">
+                        <li><a href="/cms/listings" class="{{#if (equals @root.data.pageIndex 0)}}page-active{{/if}}">Create &amp Assign</a></li>
+                        <li><a href="/cms/appointments" class="{{#if (equals @root.data.pageIndex 1)}}page-active{{/if}}">Appointment</a></li>
+                        <li><a href="/cms/leads" class="{{#if (equals @root.data.pageIndex 2)}}page-active{{/if}}">Leads</a></li>
+                    </ul>
+                    <ul class="right hide-on-med-and-down show-on-large-only">
+                        <li>
+                            <a id="notification-btn" class="dropdown-trigger targeted-dropdown valign-wrapper" href="javascript:void(0)" data-target="notification-window">
+                                <i class="material-icons">notifications</i>
+                                Notifications
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0)" class="valign-wrapper dropdown-trigger targeted-dropdown avatar-call-to-action" data-target="avatar-call-to-action-dropdown">
+                                {{#if @root.user.profile_photo}}
+                                    <img src="/cms/media/{{@root.user.profile_photo}}" alt="profile_pic" class="circle">
+                                {{else}}
+                                    <i class="material-icons">person</i>
+                                {{/if}}
+                                <span class="name">{{@root.user.firstName}} {{@root.user.lastName}}</span>
+                                <i class="material-icons right">arrow_drop_down</i>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="right hide-on-large-only show-on-medium-and-down">
+                        <li>
+                            <a href="javascript:void(0)" class='dropdown-trigger targeted-dropdown' data-target="navigation-menu" id="mobile-menu">
+                                <i class="material-icons">menu</i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <div id="notification-window" class="dropdown-content navigation-dropdown">
+            <ul class="collection">
+                {{#each @root.notifications}}
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle main-color">notifications</i>
+                        <p>{{this.notification}}</p>
+                        <p class="right-align">{{moment_format this.createdAt "dd/mm/yyyy HH:mm"}}</p>
+                    </li>
+                {{/each}}
+            </ul>
+        </div>
+        <ul id="avatar-call-to-action-dropdown" class="dropdown-content navigation-dropdown main-color-text">
+            <li>
+                <a href="/cms/user-settings">
+                    <i class="material-icons">face</i>
+                    Account Settings
+                </a>
+            </li>
+            <li>
+                <a href="/cms/edit-platform">
+                    <i class="material-icons">settings_applications</i>
+                    Edit Platform
+                </a>
+            </li>
+            <li>
+                <a href="/cms/logout">
+                    <i class="material-icons">exit_to_app</i>
+                    Logout
+                </a>
+            </li>
+        </ul>
+        <ul id="navigation-menu" class="dropdown-content navigation-dropdown main-color-text">
+            <li>
+                <a href="/cms/listings" class="{{#if (equals @root.data.pageIndex 0)}}page-active{{/if}}">
+                    <i class="material-icons">create</i>
+                    Create &amp Assign
+                </a>
+            </li>
+            <li>
+                <a href="/cms/appointments" class="{{#if (equals @root.data.pageIndex 1)}}page-active{{/if}}">
+                    <i class="material-icons">assignment_ind</i>
+                    Appointment
+                </a>
+            </li>
+            <li>
+                <a href="/cms/leads" class="{{#if (equals @root.data.pageIndex 2)}}page-active{{/if}}">
+                    <i class="material-icons">sms</i>
+                    Leads
+                </a>
+            </li>
+            <li>
+                <a href="/cms/user-settings">
+                    <i class="material-icons">face</i>
+                    Account Settings
+                </a>
+            </li>
+            <li>
+                <a href="/cms/platform-settings">
+                    <i class="material-icons">settings_applications</i>
+                    Edit Platform
+                </a>
+            </li>
+            <li>
+                <a href="/cms/logout">
+                    <i class="material-icons">exit_to_app</i>
+                    Logout
+                </a>
+            </li>
+            <li>
+                <ul class="collapsible">
+                    <li>
+                        <div class="collapsible-header"><p>Notifications</p></div>
+                        <div class="collapsible-body">
+                            <ul class="collection">
+                                {{#each @root.notifications}}
+                                    <li class="collection-item avatar">
+                                        <i class="material-icons circle main-color">notifications</i>
+                                        <p>{{{this.notification}}}</p>
+                                        <p class="right-align">{{moment_format this.createdAt "dd/mm/yyyy HH:mm"}}</p>
+                                    </li>
+                                {{/each}}
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </header>
+    <main>
+        <div class="container">
+            <h3 class="page-title main-color-text center-align">{{@root.data.pageTitle}}</h3>
+        </div>
+        <div class="divider"></div>
+        {{{body}}}
+    </main>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" integrity="sha512-NiWqa2rceHnN3Z5j6mSAvbwwg3tiwVNxiAQaaSMSXnRRDh5C2mk/+sKQRw8qjV1vN4nf8iK2a0b048PnHbyx+Q==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            let dropdown = document.querySelectorAll(".dropdown-trigger.targeted-dropdown");
+            let sortListing = document.querySelector("#sort-listing");
+            let selectCreation = document.querySelector('#listing-creation');
+            let leadCollapsible = document.querySelectorAll("#lead-collapsible");
+            let galleryModal = document.querySelector("#gallery-modal");
+            let uploadFile = document.querySelector("#upload-file");
+            let addUnitTypeBtn = document.querySelector("#add-unit-type");
+            let selectFloor = document.querySelector("#floor-selection");
+            let autocompleteUnitType = document.querySelectorAll(".autocomplete-unit-type");
+            let addTowerBtn = document.querySelector("#add-tower");
+            let towerSelect = document.querySelector("#tower-select");
+
+            M.FormSelect.init(document.querySelectorAll("select"));
+
+            M.Dropdown.init(dropdown, {
+                closeOnClick: false
+            });
+
+            M.Collapsible.init(leadCollapsible, {
+               onOpenStart: function(element) {
+                   let isRead = element.dataset.isRead;
+                   let leadId = element.dataset.leadId;
+
+                   if(isRead === "no") {
+                       fetch("{{root_url "cms/leads/mark-as-read"}}", {
+                           method: "post",
+                           credentials: "same-origin",
+                           headers: {
+                               'Content-Type': 'application/json'
+                           },
+                           body: JSON.stringify({leadId: leadId})
+                       });
+                   }
+               }
+            });
+
+            if(sortListing) {
+                sortListing.addEventListener("change", function(e) {
+                    console.log(e.target.value);
+                });
+            }
+
+            if(selectCreation) {
+                selectCreation.addEventListener("change", function(e) {
+                   window.location.href = e.target.value;
+                });
+            }
+
+            if(addUnitTypeBtn) {
+                addUnitTypeBtn.addEventListener("click", function(e) {
+                    e.preventDefault();
+                    addUnitType(e.currentTarget);
+                });
+            }
+
+            if(selectFloor) {
+                selectFloor.addEventListener("change", function(e) {
+                    let projectId = e.currentTarget.dataset.projectId;
+                    let towerIndex = e.currentTarget.dataset.towerIndex;
+                    console.log(e.target.value);
+                    window.location.href = `/cms/listings/modify/${projectId}/tower/${towerIndex}/floors/${e.target.value}`;
+                });
+            }
+
+            if(towerSelect) {
+                towerSelect.addEventListener("change", function(e) {
+                   window.location.href = e.target.value;
+                });
+            }
+
+            if(addTowerBtn) {
+                addTowerBtn.addEventListener("click", function(e) {
+                   let url = window.location.href;
+                   let names = url.split("/");
+
+                   names[names.length - 1] += 1;
+
+                   let redirectUrl = names.join("/")
+                    window.location.href = redirectUrl;
+
+                });
+            }
+
+            if(autocompleteUnitType.length > 0) {
+                let data = JSON.parse('{{{@root.data.unit_type}}}');
+                M.Autocomplete.init(autocompleteUnitType, {
+                    data: data,
+                    onAutocomplete: function(element) {
+                        let project_id = "{{@root.data.project._id}}";
+
+                        fetch("{{root_url "cms/listings/get-unit-type-data/"}}" + `${project_id}/${element}`, {
+                            credentials: "same-origin"
+                        }).then((result) => {
+                            return result.json();
+                        }).then((data) => {
+                            console.log(data);
+                        });
+                    }
+                })
+            }
+
+            document.querySelectorAll(".appointment-delete").forEach(function(element) {
+                element.addEventListener("click", function (e) {
+                   let appointment_id = e.currentTarget.appointmentId;
+                   let appointment_title = e.currentTarget.appointmentTitle;
+
+                   document.querySelector("#appointment-title-confirmation").textContent = appointment_title;
+                   document.querySelector("#appointment-id-confirmation").value = appointment_id;
+
+                    M.Modal.getInstance(document.querySelector("#delete-appointment-modal")).open();
+                });
+            });
+
+            document.querySelectorAll(".assign-agent-btn").forEach(function(element) {
+               element.addEventListener("click", function(e) {
+                    let projectId = e.currentTarget.dataset.projectId;
+                    let assignedUsersModal = document.getElementById("assigned-users");
+                    let assignProjectId = document.getElementById("assign-project-id");
+
+                    assignProjectId.value = projectId;
+
+                    fetch("{{root_url "cms/listings/assigned-agents/"}}" + projectId, {
+                        credentials: "same-origin"
+                    }).then((result) => {
+                        return result.text();
+                    }).then((html) => {
+                        assignedUsersModal.innerHTML = html;
+                        document.querySelectorAll(".unassign-agent-btn").forEach(function(element) {
+                            element.addEventListener("click", function(e) {
+                                let agent_id = e.currentTarget.agentId;
+                                let agent_name = e.currentTarget.agentName;
+
+                                let agent_name_unassign_confirmation = document.querySelector("#agent-name-unassign-confirmation");
+                                let platform_id_unassign_confirmation = document.querySelector("#platform-id-unassign-confirmation");
+
+                                agent_name_unassign_confirmation.textContent = agent_name;
+                                platform_id_unassign_confirmation.value = agent_id;
+
+                                M.Modal.getInstance(document.querySelector("#unassign-agent-modal")).open();
+                            });
+                        });
+                        M.Modal.getInstance(document.querySelector("#assign-agent-modal")).open();
+                    });
+               });
+            });
+
+            document.querySelectorAll(".unit-status-change-btn").forEach(function(element) {
+                element.addEventListener("click", function (e) {
+                    let project_id = e.currentTarget.dataset.projectId;
+                    let container = document.querySelector("#unit-status-change-container");
+
+                    fetch("{{root_url "cms/listings/modify/tower-list/"}}" + project_id, {
+                        credentials: "same-origin"
+                    }).then((result) => {
+                        return result.text();
+                    }).then((html) => {
+                        container.innerHTML = html;
+
+                        $('#tower.owl-carousel').owlCarousel({
+                            loop: true,
+                            margin: 10,
+                            responsive: {
+                                0: {
+                                    items: 1
+                                },
+                                600: {
+                                    items: 1
+                                },
+                                1000: {
+                                    items: 1
+                                }
+                            },
+                            mouseDrag: false,
+                            touchDrag: false,
+                            nav: true,
+                            navText : ["<i class='material-icons medium main-color-text shift-right'>keyboard_arrow_left</i>","<i class='material-icons medium main-color-text shift-left'>keyboard_arrow_right</i>"]
+                        });
+
+                        console.log(document.querySelectorAll("#tower .unit"));
+
+                        document.querySelectorAll("#tower .unit").forEach(function(unit) {
+                            unit.addEventListener("click", function (unit_event) {
+                                let tower_position = unit_event.currentTarget.dataset.towerPosition;
+                                let floor_position = unit_event.currentTarget.parentElement.dataset.floorPosition;
+                                let projectId = unit_event.currentTarget.parentElement.dataset.projectId;
+                                let unit_position = unit_event.currentTarget.dataset.unitPosition;
+
+                                let positions = new URLSearchParams({
+                                    tower: tower_position,
+                                    floor: floor_position,
+                                    unit: unit_position
+                                });
+
+                                console.log(positions.toString());
+
+                                fetch("{{root_url "cms/listings/confirm-unit-change-action/"}}" + projectId + "?" + positions.toString() , {
+                                    credentials: "same-origin"
+                                }).then((res) => {
+                                    return res.json();
+                                }).then((result) => {
+                                    console.log(result);
+
+                                    if(result.success) {
+                                        let unit_data = result.unit_data;
+                                        let tower_position = result.tower;
+                                        let floor_position = result["floor"];
+                                        let unit_position = result.unit;
+                                        let project = result.project_id;
+
+                                        document.querySelector("#unit-status-change-confirmation-project").value = project;
+                                        document.querySelector("#unit-status-change-confirmation-unit").value = unit_position;
+                                        document.querySelector("#unit-status-change-confirmation-floor").value = floor_position;
+                                        document.querySelector("#unit-status-change-confirmation-tower").value = tower_position;
+                                        document.querySelector("#unit-status-change-confirmation-name").textContent = unit_data.name;
+
+                                        M.Modal.getInstance(document.querySelector("#unit-status-change-confirmation-modal")).open();
+                                    } else {
+                                        M.toast({html: result.message});
+                                    }
+                                });
+                            });
+                        });
+
+                        M.Modal.getInstance(document.querySelector("#unit-status-change")).open();
+                    });
+                });
+            });
+
+            document.querySelectorAll(".file-input-btn").forEach(function(element) {
+
+                element.addEventListener("click", function(e) {
+                    let element_instance = this;
+
+                    let file_type = e.currentTarget.dataset.fileType;
+                    let file_count = e.currentTarget.dataset.fileCount;
+                    let inputName = e.currentTarget.dataset.inputName;
+                    let fileConstraints = e.currentTarget.dataset.fileConstraints;
+
+                    let galleryModal = document.querySelector("#gallery-modal");
+                    let galleryContainer = document.querySelector("#from-gallery");
+
+                    galleryModal.setAttribute("data-file-count", file_count);
+                    galleryModal.setAttribute("data-input-name", inputName);
+                    galleryModal.setAttribute("data-file-type", file_type);
+
+                    let URLParams = new URLSearchParams({fileType: file_type, fileConstraints: fileConstraints});
+
+                    fetch("{{root_url "cms/gallery/modal-select"}}" + "?" + URLParams.toString(), {
+                        credentials: "same-origin"
+                    }).then((result) => {
+                        return result.text();
+                    }).then((html) => {
+                        galleryContainer.innerHTML = html;
+
+                        preSelectMedia(element_instance);
+
+                        M.Modal.getInstance(galleryModal).open();
+                    });
+                })
+            });
+
+            if(uploadFile) {
+                uploadFile.addEventListener("submit", function (e) {
+                    e.preventDefault();
+
+                    let form = new FormData(document.getElementById("upload-file").querySelector("form"));
+                    let submitBtn = document.querySelectorAll(".submit-container");
+                    let uploadType = document.querySelector("#upload-file-mode");
+
+                    submitBtn.forEach((container) => {
+                        let submit = container.querySelector("button");
+
+                        submit.classList.add("disabled");
+                        submit.setAttribute("disabled", "disabled");
+                    });
+
+                    let url = "";
+
+                    if(!uploadType.checked) {
+                        url = "{{root_url "cms/media/upload"}}";
+                    } else {
+                        url = "{{root_url "cms/media/express-upload"}}";
+                    }
+
+                    fetch(url, {
+                        method: "POST",
+                        mode: "same-origin",
+                        cache: "no-cache",
+                        credentials: "same-origin",
+                        body: form
+                    }).then((res) => {
+                        return res.json();
+                    }).then((result) => {
+                        if(result.success) {
+                            M.toast({html: "<p>Successful upload</p>"});
+                        } else {
+                            M.toast({html: "<p>Failed to upload</p>"});
+                        }
+
+                        submitBtn.forEach((container) => {
+                            let submit = container.querySelector("button");
+
+                            submit.classList.remove("disabled");
+                            submit.removeAttribute("disabled");
+                        });
+                    });
+                });
+
+                document.querySelector("#upload-file-mode").addEventListener("change", function (e) {
+                   let state = e.target.checked;
+                   let multiple_file_form = document.querySelector("#multiple-upload-mode");
+                   let single_file_form = document.querySelector("#single-upload-mode");
+
+                   let multiple_inputs = multiple_file_form.querySelectorAll("input");
+                   let multiple_btn = multiple_file_form.querySelector("button");
+
+                    let single_inputs = single_file_form.querySelectorAll("input");
+                    let single_btn = single_file_form.querySelector("button");
+
+                   if(!state) {
+                       multiple_inputs.forEach((input) => {
+                           input.setAttribute("disabled", "disabled");
+                       });
+
+                       multiple_btn.classList.add("disabled");
+
+                       single_inputs.forEach((input) => {
+                           input.removeAttribute("disabled");
+                       });
+
+                       single_btn.classList.remove("disabled");
+                   } else {
+                       multiple_inputs.forEach((input) => {
+                           input.removeAttribute("disabled");
+                       });
+
+                       multiple_btn.classList.remove("disabled");
+
+                       single_inputs.forEach((input) => {
+                           input.setAttribute("disabled", "disabled");
+                       });
+
+                       single_btn.classList.add("disabled");
+
+                   }
+                });
+
+                document.querySelector("#delete-media-submission").addEventListener("submit", function (e) {
+                    e.preventDefault();
+                    let media_id = document.querySelector("#media-delete-confirmation-id");
+                    let form = JSON.stringify({mediaId: media_id.value});
+                    let mediaDeleteConfirmationModal = document.querySelector("#delete-confirmation-modal");
+
+                    mediaDeleteConfirmationModal.querySelectorAll("button").forEach((element) => {
+                        element.classList.add("disabled");
+                    });
+
+                    fetch("{{root_url "cms/media/delete"}}", {
+                        method: "POST",
+                        mode: "same-origin",
+                        cache: "no-cache",
+                        credentials: "same-origin",
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: form
+                    }).then((res) => {
+                        return res.json();
+                    }).then((result) => {
+                        if (result.success) {
+                            M.toast({html: "<p>Deleted successfully</p>"});
+                            M.Modal.getInstance(mediaDeleteConfirmationModal).close();
+                            mediaDeleteConfirmationModal.querySelectorAll("button").forEach((element) => {
+                                element.classList.remove("disabled");
+                            });
+                        } else {
+                            M.toast({html: "<p>Failed to delete</p>"});
+                            M.Modal.getInstance(mediaDeleteConfirmationModal).close();
+                            mediaDeleteConfirmationModal.querySelectorAll("button").forEach((element) => {
+                                element.classList.remove("disabled");
+                            });
+                        }
+
+                        let galleryModal = document.querySelector("#gallery-modal");
+                        let galleryContainer = document.querySelector("#from-gallery");
+
+                        let URLParams = new URLSearchParams({fileType: galleryModal.dataset.fileType});
+
+                        fetch("{{root_url "cms/gallery/modal-select"}}" + "?" + URLParams.toString(), {
+                            credentials: "same-origin"
+                        }).then((result) => {
+                            return result.text();
+                        }).then((html) => {
+                            galleryContainer.innerHTML = html;
+
+                            let fileInputInstance = document.querySelector(`.file-input-btn[data-input-name='${galleryModal.dataset.inputName}']`);
+
+                            preSelectMedia(fileInputInstance);
+                        });
+                    });
+                });
+
+                M.Autocomplete.init(document.querySelectorAll(".filter-category"), {
+                    data: {
+                        Uncategorised: null
+                    },
+                    onAutocomplete: getFilteredMedia
+                });
+
+                document.querySelector("#filter-category").addEventListener("keydown", listenOnCategoryChange);
+            }
+
+            tinymce.init({
+                selector: 'textarea',
+                plugins: 'code autolink lists media table link hr image paste',
+                toolbar: 'code forecolor backcolor link table numlist bullist hr image paste pastetext',
+                toolbar_mode: 'floating',
+                tinycomments_mode: 'embedded',
+                tinycomments_author: '{{concat @root.user.firstName @root.user.lastName}}'
+            });
+
+            M.AutoInit();
+
+            {{> commons/flash-message framework="materialize"}}
+        });
+
+        function addUnitType(element) {
+            let collapsible = document.querySelector("#unit-type-collapsible");
+            let childElements = collapsible.querySelectorAll("li");
+            let childCount = childElements.length;
+
+            let newElement = childElements[0].cloneNode(true);
+
+            let unit_type_name = newElement.querySelector("input[name='unit_type[0][name]'");
+            let unit_type_bathrooms = newElement.querySelector("input[name='unit_type[0][bathrooms]'");
+            let unit_type_bedrooms = newElement.querySelector("input[name='unit_type[0][bedrooms]'");
+            let unit_type_parkings = newElement.querySelector("input[name='unit_type[0][parkings]'");
+            let unit_type_sqft = newElement.querySelector("input[name='unit_type[0][sqft]'");
+
+            let bathrooms_label = newElement.querySelector("label[for='bathrooms0']");
+            let bedrooms_label = newElement.querySelector("label[for='bedrooms0']");
+            let parkings_label = newElement.querySelector("label[for='parkings0']");
+            let sqft_label = newElement.querySelector("label[for='sqft0']");
+
+            unit_type_name.setAttribute("name", `unit_type[${childCount}][name]`);
+            unit_type_name.value = "";
+
+            bathrooms_label.setAttribute("for", `bathrooms${childCount}`);
+            unit_type_bathrooms.setAttribute("name", `unit_type[${childCount}][bathrooms]`);
+            unit_type_bathrooms.setAttribute("id", `bathrooms${childCount}`);
+            unit_type_bathrooms.value = ""
+
+            bedrooms_label.setAttribute("for", `bedrooms${childCount}`);
+            unit_type_bedrooms.setAttribute("name", `unit_type[${childCount}][bedrooms]`);
+            unit_type_bedrooms.setAttribute("id", `bedrooms${childCount}`);
+            unit_type_bedrooms.value = "";
+
+            parkings_label.setAttribute("for", `parkings${childCount}`);
+            unit_type_parkings.setAttribute("name", `unit_type[${childCount}][parkings]`);
+            unit_type_parkings.setAttribute("id", `parkings${childCount}`);
+            unit_type_parkings.value = "";
+
+            sqft_label.setAttribute("for", `sqft${childCount}`);
+            unit_type_sqft.setAttribute("name", `unit_type[${childCount}][sqft]`);
+            unit_type_sqft.setAttribute("id", `sqft${childCount}`);
+            unit_type_sqft.value = "";
+
+            collapsible.appendChild(newElement);
+
+            M.Collapsible.init(document.querySelectorAll(".collapsible"));
+        }
+
+        function appendGalleryInput() {
+            let galleryModal = document.querySelector("#gallery-modal");
+
+            let input_name = galleryModal.dataset.inputName;
+            let file_count = galleryModal.dataset.fileCount;
+
+            let qualifiedInputName = getQualifiedName(input_name);
+
+            let originFileInput = document.querySelector(`.file-input-btn[data-input-name='${input_name}']`);
+
+            // Get any thumbnail container instance in that area
+            let default_thumbnail_instance = originFileInput.parentNode.querySelectorAll(".thumbnail-container");
+
+            //Destroy all instance within that area
+            default_thumbnail_instance.forEach((element) => {
+                default_thumbnail_instance.parentNode.removeChild(element);
+            });
+
+            let thumbnail_container_instance = document.querySelector(`#thumbnail-container-${qualifiedInputName}`);
+
+            let thumbnail_container;
+
+            if(thumbnail_container_instance) {
+                thumbnail_container = thumbnail_container_instance;
+            } else {
+                thumbnail_container = document.createElement("div");
+                thumbnail_container.id = `thumbnail-container-${qualifiedInputName}`;
+            }
+
+
+            // Check if origin has the inputs and delete all
+            thumbnail_container.querySelectorAll(".thumbnail").forEach((e) => {thumbnail_container.removeChild(e)});
+            originFileInput.querySelectorAll("input").forEach((e) => {originFileInput.removeChild(e)});
+
+            let highlightedMedia = galleryModal.querySelectorAll(".gallery-media-select.highlighted");
+
+            console.log(highlightedMedia);
+
+            highlightedMedia.forEach(function (media, index) {
+                let input = document.createElement("input");
+                let img = document.createElement("img");
+                let mediaId = media.dataset.mediaId;
+
+                input.setAttribute("type", "hidden");
+                input.setAttribute("name", `${input_name}[]`);
+
+                img.setAttribute("src", `/cms/media/${mediaId}`);
+                thumbnail_container.classList.add("thumbnail-container");
+                img.classList.add("thumbnail");
+
+                input.value = mediaId;
+
+                originFileInput.appendChild(input);
+                thumbnail_container.appendChild(img);
+            });
+            originFileInput.parentNode.appendChild(thumbnail_container);
+        }
+
+        function selectMedia(element) {
+            let galleryModal = document.querySelector("#gallery-modal");
+            let highlighted = galleryModal.querySelectorAll(".gallery-media-select.highlighted");
+            let highlightedCount = highlighted.length;
+
+            let maxCount = galleryModal.dataset.fileCount;
+
+            if(maxCount !== "infinity") {
+                maxCount = Number.parseInt(maxCount);
+
+                console.log(maxCount);
+
+                if(element.classList.contains("highlighted")) {
+                    element.classList.remove("highlighted");
+                } else {
+                    if(highlightedCount === maxCount) {
+                        M.toast({html: `<p>You can only select up to ${maxCount}.</p>`});
+                    } else {
+                        element.classList.add("highlighted");
+                    }
+                }
+            } else {
+                if(element.classList.contains("highlighted")) {
+                    element.classList.remove("highlighted");
+                } else {
+                    element.classList.add("highlighted");
+                }
+            }
+        }
+
+        function preSelectMedia(element) {
+            let input_name = element.dataset.inputName;
+            let galleryModal = document.querySelector("#gallery-modal");
+            let inputTargets = document.querySelectorAll(`input[name='${input_name}[]']`);
+            let mediaTargets = galleryModal.querySelectorAll(".gallery-media-select");
+
+            console.log(input_name);
+            console.log(inputTargets);
+            console.log(mediaTargets);
+
+            inputTargets.forEach((input) => {
+                let media;
+
+                mediaTargets.forEach((target) => {
+                   if(target.dataset.mediaId === input.value) {
+                       media = target;
+                   }
+                });
+
+                media.classList.add("highlighted");
+            });
+        }
+
+        function spawnHelpMessage(helpElement) {
+            let message = helpElement.dataset.message;
+            let modal = document.querySelector("#popup");
+
+            modal.querySelector("#help-message").textContent = message;
+
+            M.Modal.getInstance(modal).open();
+        }
+
+        function deleteMedia(element) {
+            let mediaId = element.dataset.mediaId;
+            let mediaName = element.dataset.mediaName;
+
+            document.querySelector("#media-delete-confirmation-name").textContent = mediaName;
+            document.querySelector("#media-delete-confirmation-id").value = mediaId;
+
+            M.Modal.getInstance(document.querySelector("#delete-confirmation-modal")).open();
+        }
+
+        function listenOnCategoryChange(event) {
+            let galleryModal = document.querySelector("#gallery-modal");
+            let category_autocomplete = document.querySelector("#filter-category");
+
+            let URLParams = new URLSearchParams({fileType: galleryModal.dataset.fileType});
+
+            fetch("{{root_url "cms/gallery/get-categories?"}}" + URLParams.toString(), {
+                credentials: "same-origin"
+            }).then((response) => {
+                return response.json();
+            }).then((result) => {
+                if(result.success) {
+                    M.Autocomplete.getInstance(category_autocomplete).updateData(result.data);
+                } else {
+                    M.toast({html: result.message});
+                }
+            });
+        }
+
+        function getFilteredMedia(category) {
+            let galleryModal = document.querySelector("#gallery-modal");
+            let galleryContainer = document.querySelector("#from-gallery");
+
+            let URLParams = new URLSearchParams({fileType: galleryModal.dataset.fileType, category: category});
+
+            fetch("{{root_url "cms/gallery/modal-select"}}" + "?" + URLParams.toString(), {
+                credentials: "same-origin"
+            }).then((result) => {
+                return result.text();
+            }).then((html) => {
+                galleryContainer.innerHTML = html;
+
+                let fileInputInstance = document.querySelector(`.file-input-btn[data-input-name='${galleryModal.dataset.inputName}']`);
+
+                preSelectMedia(fileInputInstance);
+            });
+        }
+        function getQualifiedName(string) {
+            return string.replace(/\W+/g, '-').toLowerCase();
+        }
+    </script>
+    </body>
+</html>
