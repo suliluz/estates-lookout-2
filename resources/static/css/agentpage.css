@@ -1,3 +1,9 @@
+p {
+  font-size: 1rem; }
+
+ul li {
+  font-size: 1rem; }
+
 html {
   scroll-behavior: smooth; }
 
@@ -68,12 +74,11 @@ body {
       margin-left: 8rem; }
   #contact-nav .brand-logo {
     top: 0;
-    padding: 0 2rem;
     background-color: white;
-    width: 6rem;
+    width: 8rem;
     height: 95%; }
     #contact-nav .brand-logo img {
-      width: 100%;
+      width: auto;
       height: 100%; }
   #contact-nav .nav-wrapper {
     padding: 0 0 0 2rem; }
@@ -261,13 +266,17 @@ body {
     height: 100%;
     background: white; }
 
-.unit-gallery .carousel .carousel-item {
-  width: 100%;
-  height: 100%;
-  text-align: center; }
-  .unit-gallery .carousel .carousel-item img {
-    width: auto;
-    height: 100%; }
+.unit-gallery .carousel {
+  height: auto;
+  min-height: 20rem;
+  width: 100%; }
+  .unit-gallery .carousel .carousel-item {
+    width: 100%;
+    height: 100%;
+    text-align: center; }
+    .unit-gallery .carousel .carousel-item img {
+      width: auto;
+      height: 100%; }
 
 #property-carousel {
   max-height: 50rem; }

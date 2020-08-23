@@ -25,6 +25,8 @@ module.exports = {
             }
         });
 
+        console.log(controlledProjects);
+
         return res.render("cms/listings", {layout: "cms", data: {
             pageTitle: "Create & Assign Listings",
             pageIndex: 0,
@@ -920,6 +922,8 @@ module.exports = {
                 mediaObject = Object.assign(mediaObject, {fileType: "image"});
             } else if(query.fileType === "video") {
                 mediaObject = Object.assign(mediaObject, {fileType: "video"});
+            } else if (query.fileType === "any") {
+                mediaObject = Object.assign(mediaObject, {uploadedFor: {$ne: "logo"}});
             } else {
                 mediaObject = Object.assign(mediaObject, {uploadedFor: query.fileType});
             }
