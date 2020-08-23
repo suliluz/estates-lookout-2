@@ -16,10 +16,12 @@ module.exports = {
             let distributor = await instance.collection("users").findOne({_id: project.distributor});
             controlledProjects[index]["distributor"] = distributor;
 
-            if(distributor._id.toString() === res.locals.user["id"] && res.locals.user["platform_type"] === "company") {
-                controlledProjects[index] = Object.assign(controlledProjects[index], {extendedAssignable: true});
-            } else {
-                console.log("Unauthorized.");
+            if(distributor._id.toString() === res.locals.user["id"]) {
+                controlledProjects[index] = Object.assign(controlledProjects[index], {modifyPermissions: true});
+
+                if(res.locals.user["platform_type"] === "company") {
+                    controlledProjects[index] = Object.assign(controlledProjects[index], {extendedAssignable: true});
+                }
             }
         });
 

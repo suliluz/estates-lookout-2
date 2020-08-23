@@ -49,12 +49,14 @@ TODO CMS Listings Page
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col s12">
-                                        <a href="/cms/listings/edit/{{this._id}}" class="btn action-btn full-width main-color-text">Edit Project</a>
-                                    </div>
-                                    <div class="col s12">
-                                        <a href="/cms/listings/delete/{{this._id}}" class="btn action-btn full-width main-color-text">Delete entire project</a>
-                                    </div>
+                                    {{#if this.modifyPermissions}}
+                                        <div class="col s12">
+                                            <a href="/cms/listings/edit/{{this._id}}" class="btn action-btn full-width main-color-text">Edit Project</a>
+                                        </div>
+                                        <div class="col s12">
+                                            <a href="/cms/listings/delete/{{this._id}}" class="btn action-btn full-width main-color-text">Delete entire project</a>
+                                        </div>
+                                    {{/if}}
                                     {{#if this.extendedAssignable}}
                                         <div class="col s12">
                                             <a href="javascript:void(0)" class="assign-agent-btn btn action-btn full-width main-color-text" data-project-id="{{this._id}}">Assign Agent</a>
