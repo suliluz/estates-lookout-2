@@ -196,8 +196,7 @@ body {
 }
 
 #welcome-screen-slider {
-    height: 48rem !important;
-    margin-bottom: 1.5rem;
+    height: 668px !important;
 
     & > ul.indicators {
         z-index: 2 !important;
@@ -220,11 +219,6 @@ body {
             }
         }
     }
-
-    & > ul.slides {
-        height: 50rem !important;
-    }
-
 }
 
 .search-header {
@@ -325,8 +319,10 @@ body {
 }
 
 .about-us-content {
-    text-align: justify;
-    font-size: 1rem;
+    * {
+        text-align: justify;
+        font-size: 1.1rem;
+    }
     margin: 3rem 0;
 }
 
@@ -904,5 +900,14 @@ footer {
             width: 100%;
         }
 
+    }
+
+    #welcome-screen-slider {
+        height: 20rem !important;
+        width: 100% !important;
+
+        .slides {
+            height: 20.5rem !important;
+        }
     }
 }

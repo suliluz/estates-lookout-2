@@ -74,14 +74,20 @@
                 <div class="col s12 m2">
                     <p>Landing Page Images</p>
                 </div>
-                <div class="col s12 m8">
-                    <div class="file-input-btn" data-file-type="photo" data-file-count="5" data-input-name="platform[landing_page_slider]">
+                <div class="col s12 m4">
+                    <div class="file-input-btn" data-file-type="photo" data-file-count="infinity" data-input-name="platform[landing_page_slider]">
                         <i class="material-icons">burst_mode</i>
                         <p>Insert Photos</p>
                         {{#each @root.data.platform.landing_page_slider}}
                             <input type="hidden" name="platform[landing_page_slider][]" value="{{this}}">
                         {{/each}}
                     </div>
+                </div>
+                <div class="col s12 m6">
+                    <label for="full-screen">
+                        <input name="platform[landing_page_full_screen]" id="full-screen" class="filled-in" type="checkbox" {{#if @root.data.platform.landing_page_full_screen}}checked="checked"{{/if}}>
+                        <span>Full Screen</span>
+                    </label>
                 </div>
                 {{#if @root.data.platform.landing_page_slider}}
                     <div class="thumbnail-container">

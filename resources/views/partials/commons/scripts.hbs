@@ -10,7 +10,9 @@
 
         M.FloatingActionButton.init(fixedActionBtn);
         
-        M.Slider.init(slider);
+        M.Slider.init(slider, {
+            height: 676
+        });
 
         document.querySelectorAll('.tower-open-modal').forEach(function (button) {
             button.addEventListener('click', function(e) {

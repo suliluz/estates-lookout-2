@@ -1144,6 +1144,7 @@ module.exports = {
                     theme_color: platform.theme_color,
                     landing_page_title: platform.landing_page_title,
                     landing_page_slider: ("landing_page_slider" in platform) ? _.map(platform.landing_page_slider, function(slide) {return mongodb.ObjectId(slide)}) : null,
+                    landing_page_full_screen: ("landing_page_full_screen" in platform),
                     owner_type: platform.owner_type,
                     about_description: platform.about_description,
                     about_image: ("about_image" in platform) ? mongodb.ObjectId(platform.about_image[0]) : null,

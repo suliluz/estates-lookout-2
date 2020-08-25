@@ -129,8 +129,7 @@ body {
   font-size: 1.3rem !important; }
 
 #welcome-screen-slider {
-  height: 48rem !important;
-  margin-bottom: 1.5rem; }
+  height: 668px !important; }
   #welcome-screen-slider > ul.indicators {
     z-index: 2 !important;
     left: 3rem; }
@@ -144,8 +143,6 @@ body {
         background: white; }
       #welcome-screen-slider > ul.indicators > li:not(:last-child) {
         margin-bottom: 1rem; }
-  #welcome-screen-slider > ul.slides {
-    height: 50rem !important; }
 
 .search-header {
   position: absolute;
@@ -225,9 +222,10 @@ body {
     width: 100%; }
 
 .about-us-content {
-  text-align: justify;
-  font-size: 1rem;
   margin: 3rem 0; }
+  .about-us-content * {
+    text-align: justify;
+    font-size: 1.1rem; }
 
 #about-us {
   background: lightgrey; }
@@ -599,4 +597,9 @@ footer {
 @media only screen and (max-width: 600px) {
   .unit-gallery .carousel {
     height: 15rem !important;
-    width: 100%; } }
+    width: 100%; }
+  #welcome-screen-slider {
+    height: 20rem !important;
+    width: 100% !important; }
+    #welcome-screen-slider .slides {
+      height: 20.5rem !important; } }
