@@ -18,10 +18,7 @@ module.exports = {
 
             if(distributor._id.toString() === res.locals.user["id"]) {
                 controlledProjects[index] = Object.assign(controlledProjects[index], {modifyPermissions: true});
-
-                if(res.locals.user["platform_type"] === "company") {
-                    controlledProjects[index] = Object.assign(controlledProjects[index], {extendedAssignable: true});
-                }
+                controlledProjects[index] = Object.assign(controlledProjects[index], {extendedAssignable: true});
             }
         });
 
@@ -776,7 +773,7 @@ module.exports = {
 
             let instance = await db.open();
 
-            await instance.collection("projects").deleteOne({representative_platform: mongodb.ObjectId(platform_id)});
+            await instance.collection("projects").deleteOne({distributor: mongodb.ObjectId(res.locals.user["id"]), representative_platform: mongodb.ObjectId(platform_id)});
 
             return res.json({success: true});
         } catch (err) {
